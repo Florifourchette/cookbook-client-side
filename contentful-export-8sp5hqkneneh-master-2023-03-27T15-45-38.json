@@ -1,0 +1,3698 @@
+{
+  "contentTypes": [
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "8sp5hqkneneh"
+          }
+        },
+        "id": "recipeTitle",
+        "type": "ContentType",
+        "createdAt": "2023-03-07T08:19:29.402Z",
+        "updatedAt": "2023-03-14T13:31:16.083Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 15,
+        "publishedAt": "2023-03-14T13:31:16.083Z",
+        "firstPublishedAt": "2023-03-07T08:19:29.906Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1dI1Ed3MSqCwQ42EghpQzw"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2kJudbimBOguRvJjXPuHXU"
+          }
+        },
+        "publishedCounter": 8,
+        "version": 16,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2kJudbimBOguRvJjXPuHXU"
+          }
+        }
+      },
+      "displayField": "recipeTitle",
+      "name": "recipe",
+      "description": "",
+      "fields": [
+        {
+          "id": "recipeTitle",
+          "name": "Recipe Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "defaultValue": {
+            "en-US": "Add title"
+          },
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "shortDescription",
+          "name": "Short Description",
+          "type": "Text",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "longDescription",
+          "name": "Long Description",
+          "type": "Text",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "recipePicture",
+          "name": "Recipe Picture",
+          "type": "Link",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Asset"
+        },
+        {
+          "id": "steps",
+          "name": "Steps",
+          "type": "Array",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Symbol",
+            "validations": [
+            ]
+          }
+        },
+        {
+          "id": "ingredient",
+          "name": "Ingredient",
+          "type": "Array",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Symbol",
+            "validations": [
+            ]
+          }
+        },
+        {
+          "id": "vegan",
+          "name": "Vegan",
+          "type": "Boolean",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "recipeUrl",
+          "name": "RecipeURL",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "unique": true
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "categories",
+          "name": "categories",
+          "type": "Array",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Link",
+            "validations": [
+              {
+                "linkContentType": [
+                  "categories"
+                ],
+                "message": "please connect to a category name"
+              }
+            ],
+            "linkType": "Entry"
+          }
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "8sp5hqkneneh"
+          }
+        },
+        "id": "categories",
+        "type": "ContentType",
+        "createdAt": "2023-03-14T13:29:17.368Z",
+        "updatedAt": "2023-03-14T13:29:17.702Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2023-03-14T13:29:17.702Z",
+        "firstPublishedAt": "2023-03-14T13:29:17.702Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2kJudbimBOguRvJjXPuHXU"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2kJudbimBOguRvJjXPuHXU"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2kJudbimBOguRvJjXPuHXU"
+          }
+        }
+      },
+      "displayField": "name",
+      "name": "category",
+      "description": "",
+      "fields": [
+        {
+          "id": "name",
+          "name": "Name",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "unique": true
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    }
+  ],
+  "tags": [
+  ],
+  "editorInterfaces": [
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "8sp5hqkneneh",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 16,
+        "createdAt": "2023-03-07T08:19:30.019Z",
+        "createdBy": {
+          "sys": {
+            "id": "1dI1Ed3MSqCwQ42EghpQzw",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2023-03-14T13:31:17.077Z",
+        "updatedBy": {
+          "sys": {
+            "id": "2kJudbimBOguRvJjXPuHXU",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "recipeTitle",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "recipeTitle",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "shortDescription",
+          "widgetId": "markdown",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "longDescription",
+          "widgetId": "markdown",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "recipePicture",
+          "widgetId": "assetLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "steps",
+          "widgetId": "listInput",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "ingredient",
+          "widgetId": "tagEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "vegan",
+          "settings": {
+            "helpText": "Boolean value to classify vegan Items",
+            "trueLabel": "Yes",
+            "falseLabel": "No"
+          },
+          "widgetId": "boolean",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "recipeUrl",
+          "settings": {
+            "helpText": "please use title only lower case and connect words by - for the URL to be displayed for the end users"
+          },
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "categories",
+          "widgetId": "entryLinksEditor",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "8sp5hqkneneh",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 2,
+        "createdAt": "2023-03-14T13:29:17.828Z",
+        "createdBy": {
+          "sys": {
+            "id": "2kJudbimBOguRvJjXPuHXU",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2023-03-14T13:29:18.589Z",
+        "updatedBy": {
+          "sys": {
+            "id": "2kJudbimBOguRvJjXPuHXU",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "categories",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "name",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    }
+  ],
+  "entries": [
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "8sp5hqkneneh"
+          }
+        },
+        "id": "5k4C5sKH09EPsNMndYsHb8",
+        "type": "Entry",
+        "createdAt": "2023-03-07T15:13:52.868Z",
+        "updatedAt": "2023-03-14T15:55:57.393Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 45,
+        "publishedAt": "2023-03-14T15:55:57.393Z",
+        "firstPublishedAt": "2023-03-07T15:16:33.786Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1dI1Ed3MSqCwQ42EghpQzw"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7vDT3oas78UNCoFWbC9eC8"
+          }
+        },
+        "publishedCounter": 4,
+        "version": 46,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7vDT3oas78UNCoFWbC9eC8"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "recipeTitle"
+          }
+        }
+      },
+      "fields": {
+        "recipeTitle": {
+          "en-US": "Easy Vegan Curry"
+        },
+        "shortDescription": {
+          "en-US": "This Easy Vegan Curry simmers a medley of colorful vegetables, lentils and coconut milk together in one pot. It’s a simple 30-minute recipe that’s easy to customize and packed with flavor!"
+        },
+        "longDescription": {
+          "en-US": "Ready in just 30 minutes. From chopping the vegetables to pouring it into bowls, this curry is ready and on the dinner table within 30 minutes. Use pre-chopped vegetables to make it even faster!\nCreamy and coconutty. It wouldn’t be a vegan coconut curry without coconut milk! It’s added at the end to give the curry sauce a luscious, creamy finish and smooth mouth feel.\nIt’s versatile! Use any fresh or frozen vegetables already in your fridge or freezer, use lentils, chickpeas, or the vegan protein of your choice, or give it a boost with extra spices. Versatility is the name of the game."
+        },
+        "recipePicture": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "36UJ6FlRrYZggMlJSYBiQv"
+            }
+          }
+        },
+        "steps": {
+          "en-US": [
+            "Saute the onion in an oiled pot over medium heat until they’re soft.",
+            "Add the garlic and ginger and cook until fragrant.",
+            "Lastly",
+            "stir in the curry powder.",
+            "Next",
+            "add the sweet potatoes",
+            "vegetables",
+            "and lentils.",
+            "Pour in the coconut milk",
+            "red curry paste",
+            "and salt to make the sauce. Bring it up to a boil",
+            "then down to a simmer. Cook until the potatoes are fork tender.",
+            "While you wait",
+            "whisk the cornstarch and water together to make a slurry. This will help thicken the curry sauce. Stir it into the curry",
+            "then add the sugar",
+            "lime juice",
+            "and spinach.",
+            "Taste and season as needed. Ladle the curry into bowls with basmati rice",
+            "fresh cilantro",
+            "and hot sauce",
+            "and scoop it up with a piece of vegan naan. Enjoy!"
+          ]
+        },
+        "ingredient": {
+          "en-US": [
+            "Olive oil",
+            "garlic",
+            "Onion",
+            "ginger ",
+            "Curry powder",
+            "Sweet potato",
+            "Cauliflower",
+            "broccoli",
+            "carrots",
+            "red bell peppers",
+            "Canned lentils",
+            "Coconut milk",
+            "Thai red curry paste",
+            "Salt",
+            "Cornstarch ",
+            "Sugar",
+            "Lime juice",
+            "Baby spinach",
+            "Cilantro "
+          ]
+        },
+        "vegan": {
+          "en-US": true
+        },
+        "recipeUrl": {
+          "en-US": "vegan-curry"
+        },
+        "categories": {
+          "en-US": [
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "3HiMWGGwnm57nm3fzV04qG"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "38RIVhQW32jdYTLIjPUBSX"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "6bFesdSzzGMlzZossp2mnZ"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "8sp5hqkneneh"
+          }
+        },
+        "id": "40G3ZI1X5V9yvKlLxQuq40",
+        "type": "Entry",
+        "createdAt": "2023-03-07T16:31:59.911Z",
+        "updatedAt": "2023-03-15T09:50:32.624Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 64,
+        "publishedAt": "2023-03-15T09:50:32.624Z",
+        "firstPublishedAt": "2023-03-07T16:49:08.869Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7vDT3oas78UNCoFWbC9eC8"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7vDT3oas78UNCoFWbC9eC8"
+          }
+        },
+        "publishedCounter": 8,
+        "version": 65,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7vDT3oas78UNCoFWbC9eC8"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "recipeTitle"
+          }
+        }
+      },
+      "fields": {
+        "recipeTitle": {
+          "en-US": "Delicious Vegan Chocolate Chip Cookies"
+        },
+        "shortDescription": {
+          "en-US": "Delicious vegan cookies that you can drink with your almond milk"
+        },
+        "longDescription": {
+          "en-US": "How to eat your cookies: with your friends and/or family with a glass if vegan milk or a tea. Enjoy it everywhere with everyone!"
+        },
+        "recipePicture": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "4cU441Y40183sRRAU7ULk1"
+            }
+          }
+        },
+        "steps": {
+          "en-US": [
+            "In a large bowl",
+            "whisk together the sugar",
+            "brown sugar",
+            "salt",
+            "and coconut oil until combined.",
+            "Whisk in non-dairy milk and vanilla",
+            "until all sugar has dissolved and the batter is smooth.",
+            "Sift in the flour and baking soda",
+            "then fold the mixture with a spatula",
+            "being careful not to overmix.",
+            "Fold in the chocolate chunks evenly.",
+            "Chill the dough for at least 30 minutes.  Preheat oven to 350°F (180°C). Scoop the dough with an ice cream scoop onto a parchment paper-lined baking sheet. Be sure to leave at least 2 inches of space between cookies",
+            "and the edges of the pan so cookies can spread evenly.",
+            "Bake for 12-15 minutes",
+            "or until cookies just begin to brown.",
+            "Cool completely.",
+            "Enjoy!"
+          ]
+        },
+        "ingredient": {
+          "en-US": [
+            "½ cup sugar(100 g)",
+            "¾ cup dark brown sugar(165 g), packed",
+            "1 teaspoon salt",
+            "½ cup refined coconut oil(120 g), melted",
+            "¼ cup non-dairy milk(60 mL)",
+            "1 teaspoon vanilla extract",
+            "1 ½ cups flour(185 g)",
+            "½ teaspoon baking soda",
+            "4 oz vegan semi-sweet chocolate(115 g), chunks",
+            "4 oz vegan dark chocolate(115 g), chunks"
+          ]
+        },
+        "vegan": {
+          "en-US": true
+        },
+        "recipeUrl": {
+          "en-US": "delicious-vegan-chocolate-chip-cookies"
+        },
+        "categories": {
+          "en-US": [
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "1BFD6PxIW3JHozG4KMXlyT"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "8sp5hqkneneh"
+          }
+        },
+        "id": "2FDL62QWLY1eQOfg48TYKp",
+        "type": "Entry",
+        "createdAt": "2023-03-08T14:34:12.100Z",
+        "updatedAt": "2023-03-15T09:50:02.549Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 29,
+        "publishedAt": "2023-03-15T09:50:02.549Z",
+        "firstPublishedAt": "2023-03-08T14:41:04.530Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1dI1Ed3MSqCwQ42EghpQzw"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7vDT3oas78UNCoFWbC9eC8"
+          }
+        },
+        "publishedCounter": 3,
+        "version": 30,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7vDT3oas78UNCoFWbC9eC8"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "recipeTitle"
+          }
+        }
+      },
+      "fields": {
+        "recipeTitle": {
+          "en-US": "Spanish Omelette"
+        },
+        "shortDescription": {
+          "en-US": "A fluffy vegetarian tortilla is a great meal to make with older children - this one's filled with peppers and potatoes"
+        },
+        "longDescription": {
+          "en-US": "A fluffy vegetarian tortilla is a great meal to make with older children - this one's filled with peppers and potatoes.\n\nThis recipe is suitable for children between the ages of 9 and 14 years with careful supervision. It involves knives, hot pans and boiling water, so please step in where necessary to help them to cook this safely."
+        },
+        "recipePicture": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "66EOB3SHTa5djfoVpF43Gh"
+            }
+          }
+        },
+        "steps": {
+          "en-US": [
+            "STEP 1 Finely slice the onions and chop the red pepper",
+            "removing the seeds. Cut the potatoes into roughly ½ cm slices",
+            "STEP 2 Heat a knob of butter in a medium (about 24cm) frying pan over a low heat and cook gently for 10 – 15 until starting to go brown",
+            "add the peppers and cook for a further 5 mins",
+            "STEP 3 Put the potatoes in a steamer over boiling water for 10 - 12 mins to soften. If you don’t have a steamer",
+            "put in a saucepan",
+            "cover with boiling water and simmer gently for around 8 - 10 mins until just cooked through and drain well",
+            "STEP 4 Break the eggs into a jug and beat with a fork",
+            "season with a generous grind of pepper and a pinch of salt. Use scissors to snip the chives into small pieces and stir in",
+            "STEP 5 Heat the grill. Add a little butter to the frying pan and add the potatoes. Pour over the egg mixture. Cook for 15 mins until it is golden brown underneath - Put the frying pan under the grill. Cook for a further minute  and serve."
+          ]
+        },
+        "ingredient": {
+          "en-US": [
+            "500g waxy potato, such as Charlotte",
+            "knob of butter",
+            "2 small onions, finely sliced",
+            "1 red pepper, finely chopped",
+            "8-9 eggs",
+            "1 x 25g pack chives"
+          ]
+        },
+        "vegan": {
+          "en-US": false
+        },
+        "recipeUrl": {
+          "en-US": "spanish-omelette"
+        },
+        "categories": {
+          "en-US": [
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "3drrM6IV1luvhQk8pzctkq"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "3HiMWGGwnm57nm3fzV04qG"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "8sp5hqkneneh"
+          }
+        },
+        "id": "6E6XAkXnTbytBmHisb7cbm",
+        "type": "Entry",
+        "createdAt": "2023-03-08T14:35:13.750Z",
+        "updatedAt": "2023-03-15T09:50:51.362Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 36,
+        "publishedAt": "2023-03-15T09:50:51.362Z",
+        "firstPublishedAt": "2023-03-08T14:44:13.559Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2kJudbimBOguRvJjXPuHXU"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7vDT3oas78UNCoFWbC9eC8"
+          }
+        },
+        "publishedCounter": 3,
+        "version": 37,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7vDT3oas78UNCoFWbC9eC8"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "recipeTitle"
+          }
+        }
+      },
+      "fields": {
+        "recipeTitle": {
+          "en-US": "Chicken and Waffles"
+        },
+        "shortDescription": {
+          "en-US": "Super crispy and perfectly spiced buttermilk fried chicken paired with fluffy and tender golden waffles! "
+        },
+        "longDescription": {
+          "en-US": "Hey friends! I had the privilege of participating in a Juneteenth Cookout Takeover way back in 2020 with a group of Black, food-loving buddies. I love me some chicken and waffles and just had to come back to this recipe to spruce it up and give it a little makeover! That’s right, just in time for this year’s Juneteenth which is right around the corner. Ain’t nothing like chicken and waffles!"
+        },
+        "recipePicture": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "41SzoDAmFMLFvZrs5ASkFD"
+            }
+          }
+        },
+        "steps": {
+          "en-US": [
+            "Letting the chicken marinate and sit in a seasoned buttermilk bath creates flavorful + moist chicken. My buttermilk brine includes buttermilk",
+            "salt",
+            "garlic powder",
+            "onion powder",
+            "white pepper",
+            "smoked paprika",
+            "and a few squirts of hot sauce."
+          ]
+        },
+        "ingredient": {
+          "en-US": [
+            "1 lb chicken tenderloins (about 6–7 pieces)",
+            "1 cup whole buttermilk",
+            "2 teaspoons kosher salt, divided",
+            "2 teaspoons garlic powder, divided",
+            "1 1/2 teaspoons onion powder, divided",
+            "1 1/2 teaspoons ground white pepper (or black pepper), divided",
+            "1 1/2 teaspoons smoked paprika, divided",
+            "hot sauce, optional",
+            "1 cup all-purpose flour",
+            "vegetable oil, for frying",
+            "pure maple syrup & softened butter, for serving",
+            "1 1/2 cups all-purpose flour",
+            "1/2 cup cornmeal, coarse or fine",
+            "2 teaspoons baking powder",
+            "1 teaspoon baking soda",
+            "1 tablespoon granulated sugar",
+            "1/2 teaspoon kosher salt",
+            "2 large eggs",
+            "2 cups whole buttermilk",
+            "2 teaspoons vanilla extract",
+            "1/2 cup (1 stick) unsalted butter, melted",
+            "pure maple syrup, for serving"
+          ]
+        },
+        "vegan": {
+          "en-US": false
+        },
+        "recipeUrl": {
+          "en-US": "chicken-and-waffles"
+        },
+        "categories": {
+          "en-US": [
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "3HiMWGGwnm57nm3fzV04qG"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "8sp5hqkneneh"
+          }
+        },
+        "id": "3flBa7kF4ggHULHJlacSOf",
+        "type": "Entry",
+        "createdAt": "2023-03-08T14:42:12.151Z",
+        "updatedAt": "2023-03-15T09:50:15.375Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 38,
+        "publishedAt": "2023-03-15T09:50:15.375Z",
+        "firstPublishedAt": "2023-03-08T14:51:24.493Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1dI1Ed3MSqCwQ42EghpQzw"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7vDT3oas78UNCoFWbC9eC8"
+          }
+        },
+        "publishedCounter": 3,
+        "version": 39,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7vDT3oas78UNCoFWbC9eC8"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "recipeTitle"
+          }
+        }
+      },
+      "fields": {
+        "recipeTitle": {
+          "en-US": "Traditional Spanish Pisto Recipe"
+        },
+        "shortDescription": {
+          "en-US": "Try a traditional Spanish pisto recipe, a Spanish version of ratatouille"
+        },
+        "longDescription": {
+          "en-US": "Pisto is the Spanish version of France’s ratatouille, Italy’s caponata or Turkey’s imam bayildi. It’s a hearty vegetable stew made with eggplant, zucchini, onion, tomatoes, red and green peppers, and lots of olive oil.\n\nLike with the other Mediterranean vegetable stews, the key is good quality olive oil (and lots of it!) and fresh, seasonal vegetables. Pisto is originally from the Murcia region of Spain, but can be found in the rest of the country."
+        },
+        "recipePicture": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "5pQEmzrI5kQN7oEgbONenx"
+            }
+          }
+        },
+        "steps": {
+          "en-US": [
+            "Dice the eggplant into cubes and sprinkle generously with salt. Leave for 15-20 minutes. This removes some of the bitterness from the eggplant and draws out the moisture so that the vegetable doesn’t need as much oil to fry in",
+            "Add 4 tablespoons of olive oil to a large  deep frying pan and heat over medium heat. Add the onions   chilli and diced peppers. Cook over medium heat for 12-14 minutes   until well softened",
+            "Then   add the garlic   tomatoes   salt and sugar or honey and cook for 10 minutes covered with a lid   stirring a couple of times",
+            "In the meantime   dice the zucchini and set them aside",
+            "Rinse the eggplant under water and pat dry slightly with the kitchen towel. In a separate frying pan   add 2-3 tablespoons of olive oil and heat over medium-high heat",
+            "Add the eggplant and cook for 4-5 minutes   stirring halfway   until slightly browned off",
+            "Remove the eggplant and add a little more olive oil. Add the zucchini and cook for 4-5 minutes as well   stirring a couple of times",
+            "Finally   add the pre-fried eggplant and zucchini to the pot with the tomato mixture and stir through. Cook together for 25 minutes over medium-low heat   covered with a lid. Stir a few times",
+            "Let it sit for 5 minutes after cooking before serving. You may garnish pisto with fresh parsley  basil or coriander if you wish."
+          ]
+        },
+        "ingredient": {
+          "en-US": [
+            "1 large eggplant, diced",
+            "1/2 tsp salt (for eggplant)",
+            "Good quality olive oil (cold-pressed)",
+            "1 large onion, peeled and diced",
+            "1/2 long red chilli, diced (or 1/2 teaspoon chili flakes)",
+            "1 red bell pepper/capsicum, diced",
+            "1 green bell pepper/capsicum, diced",
+            "2 garlic cloves, chopped",
+            "1.5 cans crushed tomatoes or tomato passata (organic, if possible)",
+            "1.5  teaspoons salt",
+            "1 teaspoon honey or coconut sugar (optional, omit for Whole30)",
+            "2 small to medium zucchini, peeled and diced"
+          ]
+        },
+        "vegan": {
+          "en-US": true
+        },
+        "recipeUrl": {
+          "en-US": "traditional-spanish-pisto"
+        },
+        "categories": {
+          "en-US": [
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "3drrM6IV1luvhQk8pzctkq"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "38RIVhQW32jdYTLIjPUBSX"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "3HiMWGGwnm57nm3fzV04qG"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "8sp5hqkneneh"
+          }
+        },
+        "id": "1OmFk5qQhK0742iYP6Qj9g",
+        "type": "Entry",
+        "createdAt": "2023-03-08T14:42:36.681Z",
+        "updatedAt": "2023-03-15T09:49:50.650Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 35,
+        "publishedAt": "2023-03-15T09:49:50.650Z",
+        "firstPublishedAt": "2023-03-08T14:49:09.581Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7vDT3oas78UNCoFWbC9eC8"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7vDT3oas78UNCoFWbC9eC8"
+          }
+        },
+        "publishedCounter": 3,
+        "version": 36,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7vDT3oas78UNCoFWbC9eC8"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "recipeTitle"
+          }
+        }
+      },
+      "fields": {
+        "recipeTitle": {
+          "en-US": "beef bourguignon"
+        },
+        "shortDescription": {
+          "en-US": "tender fall apart chunks of beef simmered in a rich red wine gravy makes julia child’s beef bourguignon an incredible family dinner."
+        },
+        "longDescription": {
+          "en-US": "Beef Bourguignon (Bœuf Bourgignon in French) is a world wide loved classic for a reason. This is one recipe where you want to take your time cooking it, drinking a glass of wine or two while preparing it, and show it a lot of love. Every step is worth it.\n\nIn our recipe, we included four different cooking methods to make your life easier: traditional oven, stove top, slow cooker and instant pot or pressure cooker methods. Whichever one you choose, you will not be disappointed!"
+        },
+        "recipePicture": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "31e3Zw8ynhYcDGRV7I7uoX"
+            }
+          }
+        },
+        "steps": {
+          "en-US": [
+            "Preheat oven to 350°F (175°C).",
+            "Heat the oil in a large dutch oven or heavy based pot. Sauté the bacon over medium heat for about 3 minutes",
+            "until crisp and browned. Transfer with a slotted spoon to a large dish and set aside.",
+            "Pat dry beef with paper towel; sear in batches in the hot oil/bacon fat until browned on all sides. Remove to the dish with the bacon.",
+            "In the remaining oil/bacon fat",
+            "sauté the carrots and diced onions until softened",
+            "(about 3 minutes)",
+            "then add 4 cloves minced garlic and cook for 1 minute. Drain excess fat (leave about 1 tablespoon in the pan) and return the bacon and beef back into the pot; season with 1/2 teaspoon coarse salt and 1/4 teaspoon ground pepper. Sprinkle with flour",
+            "toss well and cook for 4-5 minutes to brown.",
+            "Add the pearl onions",
+            "wine and enough stock so that the meat is barely covered. Then add the tomato paste",
+            "bullion and herbs. Bring to a simmer on the stove.",
+            "Cover",
+            "transfer to lower part of the oven and simmer for 2 to 3 hours",
+            "or until the meat is fall apart tender (adjust the heat so that the liquid simmers very slowly).",
+            "In the last 5 minutes of cooking time",
+            "prepare your mushrooms: Heat the butter in a medium-sized skillet/pan over heat. When the foam subsides",
+            "add the remaining 2 cloves garlic and cook until fragrant (about 30 seconds)",
+            "then add in the mushrooms. Cook for about 5 minutes",
+            "while shaking the pan occasionally to coat with the butter. Season with salt and pepper",
+            "if desired. Once they are browned",
+            "set aside.",
+            "Place a colander over a large pot (I do this in my clean kitchen sink). Remove the casserole from the oven and carefully empty its contents into the colander (you want to collect the sauce only). Discard the herbs",
+            "Return the beef mixture back into the dutch oven or pot. Add the mushrooms over the meat.",
+            "Remove any fat off the sauce( if any) and simmer for a minute or two",
+            "skimming off any additional fat which rises to the surface.",
+            "You should be left with about 2 1/2 cups of sauce thick enough to coat the back of a spoon lightly.  If the sauce is too thick",
+            "add a few tablespoons of stock. If the sauce is too thin",
+            "boil it over medium heat for about 10 minutes",
+            "or until reduced to the right consistency.",
+            "Taste for seasoning and adjust salt and pepper",
+            "if desired. Pour the sauce over the meat and vegetables.",
+            "If you are serving immediately",
+            "simmer the beef bourguignon for 2 to 3 minutes to heat through. Garnish with parsley and serve with mashed potatoes",
+            "rice or noodles.",
+            "To serve the following day",
+            "allow the casserole to cool completely",
+            "cover and refrigerate. The day of serving",
+            "remove from refrigerator for at least an hour before reheating. Place over medium-low heat and let simmer gently for about 10 minutes",
+            "basting the meat and vegetables with the sauce."
+          ]
+        },
+        "ingredient": {
+          "en-US": [
+            "1 tablespoons extra-virgin olive oil",
+            "6 ounces (170g) bacon, roughly chopped",
+            "3 pounds (1 1/2 kg) beef brisket, trimmed of fat (chuck steak or stewing beef) cut into 2-inch chunks",
+            "1 large carrot sliced 1/2-inch thick",
+            "1 large white onion, diced",
+            "6 cloves garlic, minced (divided)",
+            "1 pinch coarse salt and freshly ground pepper",
+            "2 tablespoons flour",
+            "12 small pearl onions (optional)",
+            "3 cups red wine like Merlot, Pinot Noir, or a Chianti -- for a milder sauce, use only 2 cups of wine",
+            "2-3 cups beef stock (if using 2 cups of wine, use 3 cups beef stock)",
+            "2 tablespoons tomato paste",
+            "1 beef bullion cube, crushed",
+            "1 teaspoon fresh thyme, finely chopped",
+            "2 tablespoons fresh parsley, finely chopped (divided)",
+            "2 bay leaves",
+            "1 pound fresh small white or brown mushrooms, quartered",
+            "2 tablespoons butter"
+          ]
+        },
+        "vegan": {
+          "en-US": false
+        },
+        "recipeUrl": {
+          "en-US": "beef-bourguignon"
+        },
+        "categories": {
+          "en-US": [
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "38RIVhQW32jdYTLIjPUBSX"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "3o33jxubvV6vlgepTtiEOp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "8sp5hqkneneh"
+          }
+        },
+        "id": "529RkQt1FkUb2ZNrlkYftK",
+        "type": "Entry",
+        "createdAt": "2023-03-08T14:44:28.526Z",
+        "updatedAt": "2023-03-15T09:50:10.059Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 22,
+        "publishedAt": "2023-03-15T09:50:10.059Z",
+        "firstPublishedAt": "2023-03-08T14:50:40.196Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2kJudbimBOguRvJjXPuHXU"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7vDT3oas78UNCoFWbC9eC8"
+          }
+        },
+        "publishedCounter": 3,
+        "version": 23,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7vDT3oas78UNCoFWbC9eC8"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "recipeTitle"
+          }
+        }
+      },
+      "fields": {
+        "recipeTitle": {
+          "en-US": "Nabe With Mushroom Dashi"
+        },
+        "shortDescription": {
+          "en-US": "When associate editor Christina Chaey is short on time, she opts for a quick nabe, or hot pot, using her beloved Japanese donabe as a catchall for whatever vegetables she needs to use up."
+        },
+        "longDescription": {
+          "en-US": "The ingredients listed in the recipe are merely suggestions; you could easily use kabocha squash or sliced sweet potatoes in place of the butternut, carrots in place of the turnips, or broccoli florets instead of (or in addition to) leafy greens. The vegan mushroom dashi is made by steeping meaty shiitakes and umami-rich kombu in water overnight (like cold-brew coffee) and useful to have around for making light soups on a whim."
+        },
+        "recipePicture": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "5XVcufpwnVLN0c40H7N9Wk"
+            }
+          }
+        },
+        "steps": {
+          "en-US": [
+            "Combine mushrooms",
+            "kombu",
+            "and 2½ cups cold water in a 1-qt. jar or small bowl. Cover and chill until dashi takes on a light golden hue",
+            "at least 8 hours or overnight."
+          ]
+        },
+        "ingredient": {
+          "en-US": [
+            "4  dried shiitake mushrooms",
+            "1  4x3\" piece dried kombu",
+            "2  oz. dried udon or soba noodles",
+            "Kosher salt",
+            "1  Tbsp. mirin (sweet Japanese rice wine)",
+            "1  Tbsp. soy sauce",
+            "1  2-oz. piece butternut squash, peeled, halved, seeds removed, sliced ½\" thick",
+            "2  small hakurei or baby turnips, trimmed, cut into quarters A big handful of greens (such as baby bok choy, kale, or Swiss chard), thinly sliced",
+            "4  oz. firm or extra-firm tofu, patted dry, cut into ½\"-thick pieces",
+            "1  scallion, white and pale green parts thinly sliced into 2\"-long pieces, dark green parts thinly sliced on a diagonal Toasted sesame oil and shichimi togarashi (for serving)"
+          ]
+        },
+        "vegan": {
+          "en-US": true
+        },
+        "recipeUrl": {
+          "en-US": "nabe-with-mushroom-dashi"
+        },
+        "categories": {
+          "en-US": [
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "38RIVhQW32jdYTLIjPUBSX"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "3HiMWGGwnm57nm3fzV04qG"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "8sp5hqkneneh"
+          }
+        },
+        "id": "6vzoWGNYnQ9HScno9rJvJe",
+        "type": "Entry",
+        "createdAt": "2023-03-14T15:07:53.310Z",
+        "updatedAt": "2023-03-14T15:40:11.041Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 28,
+        "publishedAt": "2023-03-14T15:40:11.041Z",
+        "firstPublishedAt": "2023-03-14T15:40:11.041Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7vDT3oas78UNCoFWbC9eC8"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7vDT3oas78UNCoFWbC9eC8"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 29,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7vDT3oas78UNCoFWbC9eC8"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "recipeTitle"
+          }
+        }
+      },
+      "fields": {
+        "recipeTitle": {
+          "en-US": "Taco Soup"
+        },
+        "shortDescription": {
+          "en-US": "Just dump and go with this easy taco soup recipe. Don't forget to dress it up with your favorite toppings!"
+        },
+        "longDescription": {
+          "en-US": "This quick and easy taco soup is made entirely in one pot and in less than 30 minutes. Topped with cheese, avocado, and all the fixin's, this simple soup makes the perfect weeknight dinner that'll please just about everyone."
+        },
+        "recipePicture": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "2giFfELKXNbgVHL1uwC5nV"
+            }
+          }
+        },
+        "steps": {
+          "en-US": [
+            "Add the ground beef and onion to a large pot and stir until the beef is cooked through.",
+            "Drain excess liquid.",
+            "Add the kidney beans",
+            "black beans",
+            "corn",
+            "tomatoes",
+            "tomato sauce",
+            "and taco seasoning to the pot",
+            "and stir until combined.",
+            "Cook over medium heat for 10 minutes.",
+            "Serve with cheddar cheese",
+            "sour cream",
+            "pico de gallo",
+            "avocado",
+            "corn chips",
+            "lime wedges",
+            "and cilantro.",
+            "Enjoy!"
+          ]
+        },
+        "ingredient": {
+          "en-US": [
+            "1 lb lean ground beef(454 g)",
+            "1 small onion, chopped",
+            "15 oz canned kidney bean(425 g), 1 can",
+            "15 oz canned black bean(425 g), 1 can",
+            "15 oz canned corn kernels(425 g), 1 can",
+            "15 oz canned diced tomato(425 g), 1 can",
+            "8 oz tomato sauce(225 g), 1 can",
+            "2 tablespoons taco seasoning",
+            "1 shredded cheddar cheese, to serve",
+            "1 sour cream, to serve",
+            "1 pico de gallo, to serve",
+            "1 avocado, sliced, to serve",
+            "1 tortilla chip, to serve",
+            "1 lime wedge, to serve",
+            "1 chopped cilantro, to serve"
+          ]
+        },
+        "vegan": {
+          "en-US": false
+        },
+        "recipeUrl": {
+          "en-US": "taco-soup"
+        },
+        "categories": {
+          "en-US": [
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "3HiMWGGwnm57nm3fzV04qG"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "8sp5hqkneneh"
+          }
+        },
+        "id": "3HiMWGGwnm57nm3fzV04qG",
+        "type": "Entry",
+        "createdAt": "2023-03-14T15:23:42.986Z",
+        "updatedAt": "2023-03-14T15:23:56.896Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2023-03-14T15:23:56.896Z",
+        "firstPublishedAt": "2023-03-14T15:23:56.896Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2kJudbimBOguRvJjXPuHXU"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2kJudbimBOguRvJjXPuHXU"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2kJudbimBOguRvJjXPuHXU"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "categories"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Dinner"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "8sp5hqkneneh"
+          }
+        },
+        "id": "38RIVhQW32jdYTLIjPUBSX",
+        "type": "Entry",
+        "createdAt": "2023-03-14T15:24:06.397Z",
+        "updatedAt": "2023-03-14T15:24:17.000Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2023-03-14T15:24:17.000Z",
+        "firstPublishedAt": "2023-03-14T15:24:17.000Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2kJudbimBOguRvJjXPuHXU"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2kJudbimBOguRvJjXPuHXU"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2kJudbimBOguRvJjXPuHXU"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "categories"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Lunch"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "8sp5hqkneneh"
+          }
+        },
+        "id": "1BFD6PxIW3JHozG4KMXlyT",
+        "type": "Entry",
+        "createdAt": "2023-03-14T15:24:25.275Z",
+        "updatedAt": "2023-03-14T15:24:36.388Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2023-03-14T15:24:36.388Z",
+        "firstPublishedAt": "2023-03-14T15:24:36.388Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2kJudbimBOguRvJjXPuHXU"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2kJudbimBOguRvJjXPuHXU"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2kJudbimBOguRvJjXPuHXU"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "categories"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Breakfast"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "8sp5hqkneneh"
+          }
+        },
+        "id": "6bFesdSzzGMlzZossp2mnZ",
+        "type": "Entry",
+        "createdAt": "2023-03-14T15:26:11.631Z",
+        "updatedAt": "2023-03-14T15:26:30.946Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2023-03-14T15:26:30.946Z",
+        "firstPublishedAt": "2023-03-14T15:26:30.946Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2kJudbimBOguRvJjXPuHXU"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2kJudbimBOguRvJjXPuHXU"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2kJudbimBOguRvJjXPuHXU"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "categories"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Indian"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "8sp5hqkneneh"
+          }
+        },
+        "id": "3drrM6IV1luvhQk8pzctkq",
+        "type": "Entry",
+        "createdAt": "2023-03-14T15:26:49.196Z",
+        "updatedAt": "2023-03-14T15:26:59.556Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2023-03-14T15:26:59.556Z",
+        "firstPublishedAt": "2023-03-14T15:26:59.556Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2kJudbimBOguRvJjXPuHXU"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2kJudbimBOguRvJjXPuHXU"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2kJudbimBOguRvJjXPuHXU"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "categories"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Spanish"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "8sp5hqkneneh"
+          }
+        },
+        "id": "3o33jxubvV6vlgepTtiEOp",
+        "type": "Entry",
+        "createdAt": "2023-03-14T15:27:07.822Z",
+        "updatedAt": "2023-03-14T15:27:27.017Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2023-03-14T15:27:27.017Z",
+        "firstPublishedAt": "2023-03-14T15:27:27.017Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2kJudbimBOguRvJjXPuHXU"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2kJudbimBOguRvJjXPuHXU"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2kJudbimBOguRvJjXPuHXU"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "categories"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "French"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "8sp5hqkneneh"
+          }
+        },
+        "id": "450sZKD4i3Mj44S9qVNGKA",
+        "type": "Entry",
+        "createdAt": "2023-03-14T15:56:35.737Z",
+        "updatedAt": "2023-03-15T08:50:43.105Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 23,
+        "publishedAt": "2023-03-15T08:50:43.105Z",
+        "firstPublishedAt": "2023-03-15T08:50:43.105Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7vDT3oas78UNCoFWbC9eC8"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7vDT3oas78UNCoFWbC9eC8"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 24,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7vDT3oas78UNCoFWbC9eC8"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "recipeTitle"
+          }
+        }
+      },
+      "fields": {
+        "recipeTitle": {
+          "en-US": "One-Pot Lemon Garlic Shrimp Pasta"
+        },
+        "shortDescription": {
+          "en-US": "Don’t be surprised if this becomes your favorite quick go-to."
+        },
+        "longDescription": {
+          "en-US": "This easy 30-minute pasta recipe transforms ingredients that you already have in your kitchen into a posh, seafood dish you’ll want to serve at your next dinner party. And since the whole dish is made in a single pot, clean-up is easy. "
+        },
+        "recipePicture": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "7vN2EJGmfTsgkXrRUjOKpG"
+            }
+          }
+        },
+        "steps": {
+          "en-US": [
+            "In a large pot",
+            "boil water and add pasta. Cook (stirring frequently) until al dente.",
+            "Drain and set pasta aside.",
+            "In the same pan",
+            "heat olive oil and 2 tablespoons of butter. Add garlic and crushed red pepper",
+            "cook until fragrant.",
+            "Toss in shrimp",
+            "salt and pepper to taste",
+            "and stir until shrimp start to turn pink",
+            "but are not fully cooked.",
+            "Add oregano and spinach",
+            "cook until wilted.",
+            "Return cooked pasta to the pot",
+            "add remaining butter",
+            "parmesan",
+            "and parsley. Stir until well mixed and the butter is melted.",
+            "When the shrimp are cooked",
+            "add lemon juice",
+            "mix once more",
+            "then serve while hot.",
+            "Enjoy!"
+          ]
+        },
+        "ingredient": {
+          "en-US": [
+            "8 oz linguine(225 g)",
+            "2 tablespoons olive oil",
+            "8 tablespoons unsalted butter, 1 stick",
+            "4 cloves garlic, minced",
+            "1 teaspoon red pepper flakes",
+            "1 ¼ lb large shrimp(570 g)",
+            "salt, to taste",
+            "pepper, to taste",
+            "1 teaspoon dried oregano",
+            "4 cups baby spinach(160 g)",
+            "¼ cup parmesan cheese(25 g), grated",
+            "2 tablespoons fresh parsley, chopped",
+            "1 tablespoon lemon juice"
+          ]
+        },
+        "vegan": {
+          "en-US": false
+        },
+        "recipeUrl": {
+          "en-US": "one-pot-lemon-garlic-shrimp-pasta"
+        },
+        "categories": {
+          "en-US": [
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "38RIVhQW32jdYTLIjPUBSX"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "3HiMWGGwnm57nm3fzV04qG"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "8sp5hqkneneh"
+          }
+        },
+        "id": "4RNYzmdIOK58IS3PRy1hV3",
+        "type": "Entry",
+        "createdAt": "2023-03-15T08:51:09.674Z",
+        "updatedAt": "2023-03-15T09:04:05.076Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 38,
+        "publishedAt": "2023-03-15T09:04:05.076Z",
+        "firstPublishedAt": "2023-03-15T09:04:05.076Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7vDT3oas78UNCoFWbC9eC8"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7vDT3oas78UNCoFWbC9eC8"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 39,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7vDT3oas78UNCoFWbC9eC8"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "recipeTitle"
+          }
+        }
+      },
+      "fields": {
+        "recipeTitle": {
+          "en-US": "Croissants"
+        },
+        "shortDescription": {
+          "en-US": "Today we’re conquering our fears and making homemade croissants! If you’re about to run away screaming, I understand. I’m not sugarcoating it: croissants aren’t easy. Croissants require time, patience, and a lot of rolling. However, just because this recipe is advanced doesn’t mean that YOU have to be an advanced baker to try it."
+        },
+        "longDescription": {
+          "en-US": "I started working on croissants earlier this year. I studied a couple recipes, tested them, tweaked what I found necessary, and played with this dough for weeks. The croissants are golden brown, extra flaky, crisp on the outside, soft on the inside, and unbelievable warm from the oven. One bite of this delicate French pastry will immediately transport you to a quaint French bakery. I’m confident in this homemade croissants recipe and I’m confident in YOU baking them.\n\nThe good news! You need zero fancy equipment and zero special ingredients. If you’re looking for a weekend project, know how to read directions, and crave a fresh homemade pastry (don’t we all?), then stick around. You’ll be rewarded with the BEST treat ever!!!"
+        },
+        "recipePicture": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "1NWgE4LR79uz5vU8bHTuQs"
+            }
+          }
+        },
+        "steps": {
+          "en-US": [
+            "Twenty-four hours before serving",
+            "start the détrempe: In the bowl of a stand mixer fitted with the dough hook",
+            "combine the flour",
+            "sugar",
+            "salt and yeast",
+            "and stir to combine. Create a well in the center",
+            "and pour in the water and milk. Mix on low speed until a tight",
+            "smooth dough comes together around the hook",
+            "about 5 minutes. Remove the hook and cover the bowl with a damp towel. Set aside for 10 minutes.",
+            "Reattach the dough hook and turn the mixer on medium-low speed. Add the butter pieces all at once and continue to mix",
+            "scraping down the bowl and hook once or twice",
+            "until the dough has formed a very smooth",
+            "stretchy ball that is not the least bit sticky",
+            "8 to 10 minutes.",
+            "Form the dough into a ball and place seam-side down on a lightly floured work surface. Using a sharp knife",
+            "cut two deep perpendicular slashes in the dough",
+            "forming a “+.” (This will help the dough expand into a square shape as it rises",
+            "making it easier to roll out later.) Place the dough slashed-side up inside the same mixing bowl",
+            "cover with plastic wrap and let rise at room temperature until about 1½ times its original size",
+            "45 minutes to 1 hour. Transfer the bowl to the refrigerator and chill for at least 4 hours and up to 12.",
+            "As the dough chills",
+            "make the butter block: Place the sticks of butter side-by-side in the center of a large sheet of parchment paper",
+            "then loosely fold all four sides of the parchment over the butter to form a packet. Turn the packet over and use a rolling pin to lightly beat the cold butter into a flat scant ½-inch-thick layer",
+            "fusing the sticks and making it pliable. (Don’t worry about the shape at this point.) The parchment may tear. Turn over the packet and unwrap",
+            "replacing the parchment with a new sheet if needed. Fold the parchment paper over the butter again",
+            "this time making neat",
+            "clean folds at right angles (like you’re wrapping a present)",
+            "forming an 8-inch square. Turn the packet over again and roll the pin across the packet",
+            "further flattening the butter into a thin layer that fills the entire packet while forcing out any air pockets. The goal is a level and straight-edged square of butter. Transfer the butter block to the refrigerator.",
+            "Eighteen hours before serving",
+            "remove the dough from the refrigerator",
+            "uncover and transfer to a clean work surface. (It will have doubled in size.) Deflate the dough with the heel of your hand. Using the four points that formed where you slashed the dough",
+            "stretch the dough outward and flatten into a rough square measuring no more than 8 inches on one side.",
+            "Place 2 pieces of plastic wrap on the work surface perpendicular to each other",
+            "and place the dough on top. Wrap the dough rectangle",
+            "maintaining the squared-off edges",
+            "then roll your pin over top as you did for the butter",
+            "forcing the dough to fill in the plastic and form an 8-inch square with straight sides and right angles. Freeze for 20 minutes.",
+            "Remove the butter from the refrigerator and the dough from the freezer. Set aside the butter. Unwrap the dough (save the plastic",
+            "as you’ll use it again) and place on a lightly floured surface. Roll the dough",
+            "dusting with flour if necessary",
+            "until 16 inches long",
+            "maintaining a width of 8 inches (barely wider than the butter block). With a pastry brush",
+            "brush off any flour from the surface of the dough and make sure none sticks to the surface.",
+            "You’re going to enclose the butter block in the dough and roll them out together. To ensure they do so evenly",
+            "they should have the same firmness",
+            "with the dough being slightly colder than the butter. The butter should be chilled but able to bend without breaking. If it feels stiff or brittle",
+            "let sit at room temperature for a few minutes. Unwrap the butter just so the top is exposed",
+            "then use the parchment paper to carefully invert the block in the center of the dough rectangle",
+            "ensuring all sides are parallel. Press the butter gently into the dough and peel off the parchment paper. You should have a block of butter with overhanging dough on two opposite sides and a thin border of dough along the other two.",
+            "Grasp the overhanging dough on one side and bring it over the butter toward the center",
+            "then repeat with the other side of the dough",
+            "enclosing the butter. You don’t need the dough to overlap",
+            "but you want the two sides to meet",
+            "so stretch it if necessary",
+            "and pinch the dough together along all seams so no butter peeks out anywhere. Lift the whole block and dust a bit of flour underneath",
+            "then rotate the dough 90 degrees",
+            "so the center seam is oriented vertically.",
+            "Orient the rolling pin perpendicular to the seam and lightly beat the dough all along the surface to lengthen and flatten. Roll out the dough lengthwise along the seam into a 24-inch-long",
+            "¼-inch-thick narrow slab",
+            "lightly dusting underneath and over top with more flour as needed to prevent sticking. Rather than applying pressure downward",
+            "try to push the dough toward and away from you with the pin",
+            "which will help maintain even layers of dough and butter. Remember to periodically lift the dough and make sure it’s not sticking to the surface",
+            "and try your best to maintain straight",
+            "parallel sides. (It’s OK if the shorter sides round a bit — you’re going to trim them.)",
+            "Use a wheel cutter or long",
+            "sharp knife to trim the shorter ends",
+            "removing excess dough where the butter doesn’t fully extend and squaring off the corners for a very straight-edged",
+            "even rectangle of dough. Maintaining the rectangular shape",
+            "especially at this stage",
+            "will lead to the most consistent and even lamination. If at any point in the process you see air bubbles in the dough while rolling",
+            "pierce them with a cake tester or the tip of a paring knife to deflate and proceed.",
+            "Dust any flour off the dough’s surface. Grasp the short side of the rectangle farther from you and fold it toward the midline of the dough slab",
+            "aligning the sides. Press gently so the dough adheres to itself. Repeat with the other side of the dough",
+            "leaving an ⅛-inch gap where the ends meet in the middle. Now",
+            "fold the entire slab in half crosswise along the gap in the center. You should now have a rectangular packet of dough",
+            "called a “book",
+            "” that’s four layers thick. This is a “double turn",
+            "” and it has now quadrupled the number of layers of butter inside the dough.",
+            "Wrap the book tightly in the reserved plastic. If it is thicker than about 1½ inches",
+            "or if it’s lost some of its rectangularity",
+            "roll over the plastic-wrapped dough to flatten it and reshape it. Freeze the book for 15 minutes",
+            "then refrigerate for 1 hour.",
+            "Let the dough sit at room temperature for about 5 minutes. Unwrap and place on a lightly floured surface. Beat the dough and roll out as before (Step 10) into another long",
+            "narrow ⅜-inch-thick slab. It should be nice and relaxed",
+            "and extend easily. Dust off any excess flour.",
+            "Fold the dough in thirds like a letter",
+            "bringing the top third of the slab down and over the center third",
+            "then the bottom third up and over. This is a “simple turn",
+            "” tripling the layers. Press gently so the layers adhere. Wrap tightly in plastic again and freeze for 15 minutes",
+            "then refrigerate for 1 hour.",
+            "Let the dough sit at room temperature for about 5 minutes",
+            "then unwrap and place on a lightly floured surface. Beat the dough and roll out as before",
+            "but into a 14-by-17-inch slab (15-by-16-inch for pain au chocolat or ham and cheese croissants). The dough will start to spring back",
+            "but try to get it as close to those dimensions as possible. Brush off any excess flour",
+            "wrap tightly in plastic",
+            "and slide onto a baking sheet or cutting board. Freeze for 20 minutes",
+            "then chill overnight (8 to 12 hours). If making pain au chocolat or ham and cheese croissants",
+            "see recipes.",
+            "Four and a half hours before serving",
+            "arrange racks in the upper and lower thirds of the oven. Bring a skillet of water to a simmer over medium-high heat. Transfer the skillet to the floor of the oven and close the door.",
+            "As the steam releases in the oven",
+            "line two rimmed baking sheets with parchment paper and set aside. Let the dough sit at room temperature for about 5 minutes. Unwrap (save the plastic for proofing)",
+            "place on a very lightly floured surface",
+            "and",
+            "if necessary",
+            "roll out to 17-by-14 inches. Very thoroughly dust off any excess flour with a pastry brush. Use a wheel cutter or long knife and ruler to cut the shorter sides",
+            "trimming any irregular edges where not all the layers of dough fully extend and creating a rectangle that’s exactly 16 inches long",
+            "then cut into four 4-by-14-inch rectangles.",
+            "Separate the rectangles",
+            "then use the ruler and wheel cutter to slice a straight line from opposite corners of one rectangle to form two long",
+            "equal triangles. Repeat with the remaining rectangles to make 8 triangles. Trim the short side of each triangle at a slight angle",
+            "making them into triangles with longer sides of equal length.",
+            "Working one triangle at a time",
+            "grasp the two corners of the shorter end",
+            "the base of the crescent",
+            "and tug gently outward to extend the points and widen the base to about 3 inches. Then",
+            "gently tug outward from about halfway down the triangle all the way to the point",
+            "to both lengthen the triangle and thin the dough as it narrows. Starting at the base (the short end)",
+            "snugly roll up the dough",
+            "keeping the point centered and applying light pressure. Try not to roll tightly or stretch the dough around itself. Place the crescent on one of the parchment-lined baking sheets",
+            "resting it on the point of the triangle. If the dough gets too soft while you’re working",
+            "cover the triangles and freeze for a few minutes before resuming rolling. Space them evenly on the baking sheets",
+            "four per sheet. Very loosely cover the baking sheets with plastic wrap",
+            "so the croissants have some room to expand.",
+            "Three and a half hours before serving",
+            "open the oven and stick your hand inside: It should be humid but not hot",
+            "as the water in the skillet will have cooled. You want the croissants to proof at 70 to 75 degrees. (Any hotter and the butter will start to melt",
+            "leading to a denser croissant.) Place the baking sheets inside the oven and let the croissants proof until they’re about doubled in size",
+            "extremely puffy",
+            "and jiggle delicately when the baking sheet is gently shaken",
+            "2 to 2½ hours. Resist the urge to touch or poke the croissants as they proof: They’re very delicate. Try not to rush this process",
+            "either",
+            "as an underproofed croissant will not be as light and ethereal.",
+            "Remove the baking sheets from the oven and carefully uncover them",
+            "then transfer to the refrigerator and chill for 20 minutes while you heat the oven. Remove the skillet from the oven and heat to 375 degrees.",
+            "In a small bowl",
+            "stir the yolk and heavy cream until streak-free. Using a pastry brush",
+            "gently brush the smooth surfaces of each crescent with the yolk and cream mixture",
+            "doing your best to avoid the cut sides with exposed layers of dough.",
+            "Transfer the sheets to the oven and bake for 20 minutes. Rotate the baking sheets and switch racks",
+            "and continue to bake until the croissants are deeply browned",
+            "another 10 to 15 minutes. Remove from the oven and let cool completely on the baking sheets."
+          ]
+        },
+        "ingredient": {
+          "en-US": [
+            "4⅔ cups/605 grams all-purpose or bread flour, plus more for dusting",
+            "⅓ cup/66 grams granulated sugar",
+            "1 tablespoon plus ½ teaspoon/12 grams kosher salt",
+            "2¼ teaspoons/7 grams active dry yeast",
+            "¾ cup plus 2 tablespoons/214 grams water, at room temperature",
+            "½ cup/120 grams whole milk, at room temperature",
+            "¼ cup/57 grams unsalted butter, cut into ½-inch pieces, chilled",
+            "1½ cups/340 grams unsalted European or European-style butter (3 sticks), chilled",
+            " All-purpose flour, for rolling",
+            "1 large egg yolk",
+            "1 tablespoon heavy cream"
+          ]
+        },
+        "vegan": {
+          "en-US": false
+        },
+        "recipeUrl": {
+          "en-US": "croissants"
+        },
+        "categories": {
+          "en-US": [
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "1BFD6PxIW3JHozG4KMXlyT"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "3o33jxubvV6vlgepTtiEOp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "8sp5hqkneneh"
+          }
+        },
+        "id": "6pb82vrmH7bGrq8PKPdcCS",
+        "type": "Entry",
+        "createdAt": "2023-03-15T09:43:55.383Z",
+        "updatedAt": "2023-03-15T09:48:39.345Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 18,
+        "publishedAt": "2023-03-15T09:48:39.345Z",
+        "firstPublishedAt": "2023-03-15T09:48:39.345Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7vDT3oas78UNCoFWbC9eC8"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7vDT3oas78UNCoFWbC9eC8"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 19,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7vDT3oas78UNCoFWbC9eC8"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "recipeTitle"
+          }
+        }
+      },
+      "fields": {
+        "recipeTitle": {
+          "en-US": " Crema Catalana "
+        },
+        "shortDescription": {
+          "en-US": "Crema Catalana might not be as well known as crème brûlée, which it is most like. But to me, and many others who know it, it is both better and easier."
+        },
+        "longDescription": {
+          "en-US": "The first time I lived in Spain was in Catalunya, and despite some challenges in language, having to learn both some Catalan and Spanish, it was a great place to be based. The region has a beautiful coast, Barcelona of course, as well as Gaudí, cava and more.\n\nBut in the small town I was in, the big sell was the food. I will never forget the wonderful market, as well as the great meals we had out."
+        },
+        "recipePicture": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "2krrdPFc8stsm9JZpz9Z0k"
+            }
+          }
+        },
+        "steps": {
+          "en-US": [
+            "Warm the milk with the pieces of orange and lemon peel and cinnamon stick to infuse it.",
+            "Whisk together the egg yolks",
+            "sugar and corn starch (corn flour).",
+            "Gradually add the egg mixture into the warm milk",
+            "whisking as you go to ensure you don't get scrambled egg lumps.",
+            "Put back on a low heat and warm",
+            "stirring constantly until it just thickens.",
+            "Pour into ramekins (or ceramic dish)",
+            "let cool then refrigerate at least 4 hours.",
+            "Sprinkle sugar evenly over the top then either melt sugar with a blowtorch or under a broiler (grill) to form a sugar crust."
+          ]
+        },
+        "ingredient": {
+          "en-US": [
+            "Milk",
+            "Oranges",
+            "Lemon",
+            "Cinnamon",
+            "eggs",
+            "Sugar",
+            "Corn Starch"
+          ]
+        },
+        "vegan": {
+          "en-US": false
+        },
+        "recipeUrl": {
+          "en-US": "creama-catalana"
+        },
+        "categories": {
+          "en-US": [
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "3drrM6IV1luvhQk8pzctkq"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "assets": [
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "8sp5hqkneneh"
+          }
+        },
+        "id": "36UJ6FlRrYZggMlJSYBiQv",
+        "type": "Asset",
+        "createdAt": "2023-03-07T15:15:18.546Z",
+        "updatedAt": "2023-03-15T10:03:01.099Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 10,
+        "publishedAt": "2023-03-15T10:03:01.099Z",
+        "firstPublishedAt": "2023-03-07T15:15:37.615Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1dI1Ed3MSqCwQ42EghpQzw"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7vDT3oas78UNCoFWbC9eC8"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 11,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7vDT3oas78UNCoFWbC9eC8"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en-US": "Vegan curry"
+        },
+        "description": {
+          "en-US": ""
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/8sp5hqkneneh/36UJ6FlRrYZggMlJSYBiQv/978420c3042a203e4929eaae7f008415/vegan_curry.jpeg",
+            "details": {
+              "size": 50668,
+              "image": {
+                "width": 500,
+                "height": 500
+              }
+            },
+            "fileName": "vegan curry.jpeg",
+            "contentType": "image/webp"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "8sp5hqkneneh"
+          }
+        },
+        "id": "4cU441Y40183sRRAU7ULk1",
+        "type": "Asset",
+        "createdAt": "2023-03-07T16:45:18.313Z",
+        "updatedAt": "2023-03-15T15:16:14.549Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 8,
+        "publishedAt": "2023-03-15T15:16:14.549Z",
+        "firstPublishedAt": "2023-03-07T16:45:54.172Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7vDT3oas78UNCoFWbC9eC8"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7vDT3oas78UNCoFWbC9eC8"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 9,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7vDT3oas78UNCoFWbC9eC8"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en-US": "vegan cookies"
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/8sp5hqkneneh/4cU441Y40183sRRAU7ULk1/0690903211426e3d543e4ba68193f506/cookies.jpg",
+            "details": {
+              "size": 218376,
+              "image": {
+                "width": 992,
+                "height": 744
+              }
+            },
+            "fileName": "cookies.jpg",
+            "contentType": "image/jpeg"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "8sp5hqkneneh"
+          }
+        },
+        "id": "41SzoDAmFMLFvZrs5ASkFD",
+        "type": "Asset",
+        "createdAt": "2023-03-08T14:36:50.525Z",
+        "updatedAt": "2023-03-08T14:38:22.362Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 4,
+        "publishedAt": "2023-03-08T14:38:22.362Z",
+        "firstPublishedAt": "2023-03-08T14:38:22.362Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2kJudbimBOguRvJjXPuHXU"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2kJudbimBOguRvJjXPuHXU"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 5,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2kJudbimBOguRvJjXPuHXU"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en-US": "ChickenWaffle"
+        },
+        "description": {
+          "en-US": ""
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/8sp5hqkneneh/41SzoDAmFMLFvZrs5ASkFD/1ff3936851255f0e16869aacbda0afae/chicken.png",
+            "details": {
+              "size": 921499,
+              "image": {
+                "width": 650,
+                "height": 650
+              }
+            },
+            "fileName": "chicken.png",
+            "contentType": "image/png"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "8sp5hqkneneh"
+          }
+        },
+        "id": "66EOB3SHTa5djfoVpF43Gh",
+        "type": "Asset",
+        "createdAt": "2023-03-08T14:40:42.234Z",
+        "updatedAt": "2023-03-08T14:40:53.510Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 4,
+        "publishedAt": "2023-03-08T14:40:53.510Z",
+        "firstPublishedAt": "2023-03-08T14:40:53.510Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1dI1Ed3MSqCwQ42EghpQzw"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1dI1Ed3MSqCwQ42EghpQzw"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 5,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1dI1Ed3MSqCwQ42EghpQzw"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en-US": "tortilla-española"
+        },
+        "description": {
+          "en-US": ""
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/8sp5hqkneneh/66EOB3SHTa5djfoVpF43Gh/3be0b5e36e6274266eac2cd7206dad08/tortilla-espa__ola__1_.jpg",
+            "details": {
+              "size": 231278,
+              "image": {
+                "width": 975,
+                "height": 650
+              }
+            },
+            "fileName": "tortilla-española (1).jpg",
+            "contentType": "image/jpeg"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "8sp5hqkneneh"
+          }
+        },
+        "id": "31e3Zw8ynhYcDGRV7I7uoX",
+        "type": "Asset",
+        "createdAt": "2023-03-08T14:41:42.886Z",
+        "updatedAt": "2023-03-08T14:42:11.484Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 4,
+        "publishedAt": "2023-03-08T14:42:11.484Z",
+        "firstPublishedAt": "2023-03-08T14:42:11.484Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7vDT3oas78UNCoFWbC9eC8"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7vDT3oas78UNCoFWbC9eC8"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 5,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7vDT3oas78UNCoFWbC9eC8"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en-US": "Beef bourguignon"
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/8sp5hqkneneh/31e3Zw8ynhYcDGRV7I7uoX/f777529bfc0e898d765502fad3d9e52b/Beef-Bourgignon-IMAGE-RECIPE-17.jpg",
+            "details": {
+              "size": 298432,
+              "image": {
+                "width": 1500,
+                "height": 2250
+              }
+            },
+            "fileName": "Beef-Bourgignon-IMAGE-RECIPE-17.jpg",
+            "contentType": "image/jpeg"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "8sp5hqkneneh"
+          }
+        },
+        "id": "5XVcufpwnVLN0c40H7N9Wk",
+        "type": "Asset",
+        "createdAt": "2023-03-08T14:47:17.727Z",
+        "updatedAt": "2023-03-08T14:48:13.716Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 4,
+        "publishedAt": "2023-03-08T14:48:13.716Z",
+        "firstPublishedAt": "2023-03-08T14:48:13.716Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2kJudbimBOguRvJjXPuHXU"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2kJudbimBOguRvJjXPuHXU"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 5,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2kJudbimBOguRvJjXPuHXU"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en-US": "nabedashi"
+        },
+        "description": {
+          "en-US": ""
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/8sp5hqkneneh/5XVcufpwnVLN0c40H7N9Wk/112b17b8e29f6ad4c78677c7112e6335/nabedashi.png",
+            "details": {
+              "size": 981296,
+              "image": {
+                "width": 650,
+                "height": 650
+              }
+            },
+            "fileName": "nabedashi.png",
+            "contentType": "image/png"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "8sp5hqkneneh"
+          }
+        },
+        "id": "5pQEmzrI5kQN7oEgbONenx",
+        "type": "Asset",
+        "createdAt": "2023-03-08T14:50:58.819Z",
+        "updatedAt": "2023-03-08T14:51:08.590Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 4,
+        "publishedAt": "2023-03-08T14:51:08.590Z",
+        "firstPublishedAt": "2023-03-08T14:51:08.590Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1dI1Ed3MSqCwQ42EghpQzw"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1dI1Ed3MSqCwQ42EghpQzw"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 5,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1dI1Ed3MSqCwQ42EghpQzw"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en-US": "spanish-pisto-vegetable-stew"
+        },
+        "description": {
+          "en-US": ""
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/8sp5hqkneneh/5pQEmzrI5kQN7oEgbONenx/ab45e8017f72a6e9c03f620e782bfa97/spanish-pisto-vegetable-stew-2-1__1_.jpg",
+            "details": {
+              "size": 56833,
+              "image": {
+                "width": 433,
+                "height": 650
+              }
+            },
+            "fileName": "spanish-pisto-vegetable-stew-2-1 (1).jpg",
+            "contentType": "image/jpeg"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "8sp5hqkneneh"
+          }
+        },
+        "id": "2giFfELKXNbgVHL1uwC5nV",
+        "type": "Asset",
+        "createdAt": "2023-03-14T15:16:53.080Z",
+        "updatedAt": "2023-03-14T15:18:27.181Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 5,
+        "publishedAt": "2023-03-14T15:18:27.181Z",
+        "firstPublishedAt": "2023-03-14T15:18:27.181Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7vDT3oas78UNCoFWbC9eC8"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7vDT3oas78UNCoFWbC9eC8"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 6,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7vDT3oas78UNCoFWbC9eC8"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en-US": "Taco soup"
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/8sp5hqkneneh/2giFfELKXNbgVHL1uwC5nV/538b12bec230527f5010decdbbb76f4d/Taco.jpeg",
+            "details": {
+              "size": 34332,
+              "image": {
+                "width": 600,
+                "height": 600
+              }
+            },
+            "fileName": "Taco.jpeg",
+            "contentType": "image/webp"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "8sp5hqkneneh"
+          }
+        },
+        "id": "7vN2EJGmfTsgkXrRUjOKpG",
+        "type": "Asset",
+        "createdAt": "2023-03-15T08:46:22.392Z",
+        "updatedAt": "2023-03-15T08:46:50.360Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 4,
+        "publishedAt": "2023-03-15T08:46:50.360Z",
+        "firstPublishedAt": "2023-03-15T08:46:50.360Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7vDT3oas78UNCoFWbC9eC8"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7vDT3oas78UNCoFWbC9eC8"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 5,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7vDT3oas78UNCoFWbC9eC8"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en-US": "Shrimp pasta"
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/8sp5hqkneneh/7vN2EJGmfTsgkXrRUjOKpG/88fe5854e93d0f038e5675947c2df82a/shrimp_pasta.jpeg",
+            "details": {
+              "size": 113708,
+              "image": {
+                "width": 700,
+                "height": 833
+              }
+            },
+            "fileName": "shrimp pasta.jpeg",
+            "contentType": "image/webp"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "8sp5hqkneneh"
+          }
+        },
+        "id": "1NWgE4LR79uz5vU8bHTuQs",
+        "type": "Asset",
+        "createdAt": "2023-03-15T08:52:45.108Z",
+        "updatedAt": "2023-03-15T08:56:01.514Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 4,
+        "publishedAt": "2023-03-15T08:56:01.514Z",
+        "firstPublishedAt": "2023-03-15T08:56:01.514Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7vDT3oas78UNCoFWbC9eC8"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7vDT3oas78UNCoFWbC9eC8"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 5,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7vDT3oas78UNCoFWbC9eC8"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en-US": "Croissant"
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/8sp5hqkneneh/1NWgE4LR79uz5vU8bHTuQs/01c439b4ad55e646959d26f5ef4c48e4/croissant.jpeg",
+            "details": {
+              "size": 8108,
+              "image": {
+                "width": 300,
+                "height": 168
+              }
+            },
+            "fileName": "croissant.jpeg",
+            "contentType": "image/jpeg"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "8sp5hqkneneh"
+          }
+        },
+        "id": "2krrdPFc8stsm9JZpz9Z0k",
+        "type": "Asset",
+        "createdAt": "2023-03-15T09:44:55.034Z",
+        "updatedAt": "2023-03-15T09:45:54.891Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 8,
+        "publishedAt": "2023-03-15T09:45:54.891Z",
+        "firstPublishedAt": "2023-03-15T09:45:54.891Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7vDT3oas78UNCoFWbC9eC8"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7vDT3oas78UNCoFWbC9eC8"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 9,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "7vDT3oas78UNCoFWbC9eC8"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en-US": "Crema catalana"
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/8sp5hqkneneh/2krrdPFc8stsm9JZpz9Z0k/fe2f69b9c598e5ced153121e8fbf0dbc/crema-Catalana-with-spoonful.jpg",
+            "details": {
+              "size": 74010,
+              "image": {
+                "width": 1000,
+                "height": 1333
+              }
+            },
+            "fileName": "crema-Catalana-with-spoonful.jpg",
+            "contentType": "image/webp"
+          }
+        }
+      }
+    }
+  ],
+  "locales": [
+    {
+      "name": "English (United States)",
+      "code": "en-US",
+      "fallbackCode": null,
+      "default": true,
+      "contentManagementApi": true,
+      "contentDeliveryApi": true,
+      "optional": false,
+      "sys": {
+        "type": "Locale",
+        "id": "2No5REZLwqamSRSureVwe1",
+        "version": 1,
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "8sp5hqkneneh"
+          }
+        },
+        "environment": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Environment",
+            "id": "master",
+            "uuid": "a4760772-7472-4d68-9576-e8b97c782be1"
+          }
+        },
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1dI1Ed3MSqCwQ42EghpQzw"
+          }
+        },
+        "createdAt": "2023-03-07T08:09:51Z",
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1dI1Ed3MSqCwQ42EghpQzw"
+          }
+        },
+        "updatedAt": "2023-03-07T08:09:51Z"
+      }
+    }
+  ],
+  "webhooks": [
+  ],
+  "roles": [
+    {
+      "name": "Author",
+      "description": "Allows editing of content",
+      "policies": [
+        {
+          "effect": "allow",
+          "actions": [
+            "create"
+          ],
+          "constraint": {
+            "and": [
+              {
+                "equals": [
+                  {
+                    "doc": "sys.type"
+                  },
+                  "Entry"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "effect": "allow",
+          "actions": [
+            "read"
+          ],
+          "constraint": {
+            "and": [
+              {
+                "equals": [
+                  {
+                    "doc": "sys.type"
+                  },
+                  "Entry"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "effect": "allow",
+          "actions": [
+            "update"
+          ],
+          "constraint": {
+            "and": [
+              {
+                "equals": [
+                  {
+                    "doc": "sys.type"
+                  },
+                  "Entry"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "effect": "allow",
+          "actions": [
+            "create"
+          ],
+          "constraint": {
+            "and": [
+              {
+                "equals": [
+                  {
+                    "doc": "sys.type"
+                  },
+                  "Asset"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "effect": "allow",
+          "actions": [
+            "read"
+          ],
+          "constraint": {
+            "and": [
+              {
+                "equals": [
+                  {
+                    "doc": "sys.type"
+                  },
+                  "Asset"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "effect": "allow",
+          "actions": [
+            "update"
+          ],
+          "constraint": {
+            "and": [
+              {
+                "equals": [
+                  {
+                    "doc": "sys.type"
+                  },
+                  "Asset"
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "permissions": {
+        "ContentModel": [
+          "read"
+        ],
+        "Settings": [
+        ],
+        "ContentDelivery": [
+        ],
+        "Environments": [
+        ],
+        "EnvironmentAliases": [
+        ],
+        "Tags": [
+        ]
+      },
+      "sys": {
+        "type": "Role",
+        "id": "2NINqyyvMDMi7uEmAnLV9j",
+        "version": 0,
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "8sp5hqkneneh"
+          }
+        },
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1dI1Ed3MSqCwQ42EghpQzw"
+          }
+        },
+        "createdAt": "2023-03-07T08:09:51Z",
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1dI1Ed3MSqCwQ42EghpQzw"
+          }
+        },
+        "updatedAt": "2023-03-07T08:09:51Z"
+      }
+    },
+    {
+      "name": "Editor",
+      "description": "Allows editing, publishing and archiving of content",
+      "policies": [
+        {
+          "effect": "allow",
+          "actions": "all",
+          "constraint": {
+            "and": [
+              {
+                "equals": [
+                  {
+                    "doc": "sys.type"
+                  },
+                  "Entry"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "effect": "allow",
+          "actions": "all",
+          "constraint": {
+            "and": [
+              {
+                "equals": [
+                  {
+                    "doc": "sys.type"
+                  },
+                  "Asset"
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "permissions": {
+        "ContentModel": [
+          "read"
+        ],
+        "Settings": [
+        ],
+        "ContentDelivery": [
+        ],
+        "Environments": [
+        ],
+        "EnvironmentAliases": [
+        ],
+        "Tags": [
+        ]
+      },
+      "sys": {
+        "type": "Role",
+        "id": "2NJmo8OcSTMorGQ6WBmm7P",
+        "version": 0,
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "8sp5hqkneneh"
+          }
+        },
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1dI1Ed3MSqCwQ42EghpQzw"
+          }
+        },
+        "createdAt": "2023-03-07T08:09:51Z",
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1dI1Ed3MSqCwQ42EghpQzw"
+          }
+        },
+        "updatedAt": "2023-03-07T08:09:51Z"
+      }
+    },
+    {
+      "name": "Translator",
+      "description": "Allows editing of localized fields in the specified language",
+      "policies": [
+        {
+          "effect": "allow",
+          "actions": [
+            "read"
+          ],
+          "constraint": {
+            "and": [
+              {
+                "equals": [
+                  {
+                    "doc": "sys.type"
+                  },
+                  "Entry"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "effect": "allow",
+          "actions": [
+            "read"
+          ],
+          "constraint": {
+            "and": [
+              {
+                "equals": [
+                  {
+                    "doc": "sys.type"
+                  },
+                  "Asset"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "effect": "allow",
+          "actions": [
+            "update"
+          ],
+          "constraint": {
+            "and": [
+              {
+                "equals": [
+                  {
+                    "doc": "sys.type"
+                  },
+                  "Entry"
+                ]
+              },
+              {
+                "paths": [
+                  {
+                    "doc": "fields.%.%"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "effect": "allow",
+          "actions": [
+            "update"
+          ],
+          "constraint": {
+            "and": [
+              {
+                "equals": [
+                  {
+                    "doc": "sys.type"
+                  },
+                  "Asset"
+                ]
+              },
+              {
+                "paths": [
+                  {
+                    "doc": "fields.%.%"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "permissions": {
+        "ContentModel": [
+          "read"
+        ],
+        "Settings": [
+        ],
+        "ContentDelivery": [
+        ],
+        "Environments": [
+        ],
+        "EnvironmentAliases": [
+        ],
+        "Tags": [
+        ]
+      },
+      "sys": {
+        "type": "Role",
+        "id": "2NJNTOHcpMtptoX68UpZmt",
+        "version": 0,
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "8sp5hqkneneh"
+          }
+        },
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1dI1Ed3MSqCwQ42EghpQzw"
+          }
+        },
+        "createdAt": "2023-03-07T08:09:51Z",
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1dI1Ed3MSqCwQ42EghpQzw"
+          }
+        },
+        "updatedAt": "2023-03-07T08:09:51Z"
+      }
+    }
+  ]
+}
