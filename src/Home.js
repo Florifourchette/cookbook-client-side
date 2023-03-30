@@ -38,9 +38,12 @@ export default ({
               <Autocomplete
                 id="filter-demo"
                 value={categoryID}
-                onChange={(e, newValue) => setCategoryID(newValue)}
+                onChange={(e, newValue) => {
+                  setCategoryID(newValue);
+                  console.log(newValue);
+                }}
                 options={categories}
-                getOptionLabel={(category) => category?.fields?.name}
+                getOptionLabel={(category) => category?.name}
                 filterOptions={filterOptions}
                 sx={{ width: 300, padding: 0 }}
                 renderInput={(params) => (
@@ -65,9 +68,8 @@ export default ({
       <div className="row d-flex justify-content-center">
         <div className="col-sm-12 col-md-12 col-lg-10 col-xl-10 d-flex justify-content-center flex-wrap">
           {filteredRecipes?.map((recipe) => (
-            <RecipeCard key={recipe.recipeUrl} recipe={recipe} />
+            <RecipeCard key={recipe.id} recipe={recipe} />
           ))}
-          
         </div>
         <div className="row d-flex justify-content-center">
           <div className="col-sm-12 col-md-7 col-lg-6 col-xl-6 d-flex align-items-center flex-column">

@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
-import useContentful from "./useContentful";
 import manageContentful from "./manageContentful";
 import Recipe from "./Recipe";
 import Home from "./Home";
@@ -16,14 +15,13 @@ import { AuthProvider } from "./contexts/AuthContext";
 import ProtectedRoute from "./ProtectedRoute";
 
 const App = () => {
-  const { getRecipes } = useContentful();
-  const { getCategories } = useContentful();
   const { createEntry } = manageContentful();
   const [recipes, setRecipes] = useState([]);
   const [searchInput, setSearchInput] = useState("");
   const [categories, setCategories] = useState([]);
   const [categoryID, setCategoryID] = useState(null);
   const [checked, setchecked] = useState(false);
+  const [resetAll, setResetAll] = useState(false);
   const titleRef = useRef("");
   const shortTextRef = useRef("");
   const longTextRef = useRef("");
@@ -31,7 +29,7 @@ const App = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8001/recipes")
+      .get("http://localhost:8001/recipes/")
       .then((response) => {
         setRecipes(response.data);
         console.log(response.data);
@@ -39,12 +37,8 @@ const App = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
-  // [categoryID, searchInput, uploading]
-
-  useEffect(() => {
     axios
-      .get("http://localhost:8001/categories")
+      .get("http://localhost:8001/categories/")
       .then((response) => {
         setCategories(response.data);
         console.log(response.data);
@@ -52,7 +46,20 @@ const App = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [resetAll]);
+  // [categoryID, searchInput, uploading]
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8001/categories/${categoryID?.id}`)
+      .then((response) => {
+        setRecipes(response.data);
+        console.log("is running");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [categoryID]);
 
   const handleSearchInput = (input) => {
     setSearchInput(input);
@@ -83,6 +90,7 @@ const App = () => {
 
   const displayAllresults = (e) => {
     e.preventDefault();
+    setResetAll(!resetAll);
     setCategoryID(null);
     setchecked(null);
     setSearchInput("");
