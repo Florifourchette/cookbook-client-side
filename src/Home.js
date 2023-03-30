@@ -4,6 +4,7 @@ import RecipeCard from "./RecipeCard";
 import TextField from "@mui/material/TextField";
 import Autocomplete, { createFilterOptions } from "@mui/material/Autocomplete";
 import Form from "react-bootstrap/Form";
+import { BiLoader } from "react-icons/bi";
 
 export default ({
   filteredRecipes,
@@ -35,21 +36,25 @@ export default ({
               readers each month from around the world.
             </p>
             <div className="d-flex flex-row">
-              <Autocomplete
-                id="filter-demo"
-                value={categoryID}
-                onChange={(e, newValue) => {
-                  setCategoryID(newValue);
-                  console.log(newValue);
-                }}
-                options={categories}
-                getOptionLabel={(category) => category?.name}
-                filterOptions={filterOptions}
-                sx={{ width: 300, padding: 0 }}
-                renderInput={(params) => (
-                  <TextField {...params} label="Recipe Category" />
-                )}
-              />
+              {categories ? (
+                <Autocomplete
+                  id="filter-demo"
+                  value={categoryID}
+                  onChange={(e, newValue) => {
+                    setCategoryID(newValue);
+                    console.log(newValue);
+                  }}
+                  options={categories}
+                  getOptionLabel={(category) => category?.name}
+                  filterOptions={filterOptions}
+                  sx={{ width: 300, padding: 0 }}
+                  renderInput={(params) => (
+                    <TextField {...params} label="Recipe Category" />
+                  )}
+                />
+              ) : (
+                <BiLoader />
+              )}
               <button id="resetAll" onClick={displayAllresults}>
                 all recipes
               </button>
@@ -66,11 +71,15 @@ export default ({
       </div>
 
       <div className="row d-flex justify-content-center">
-        <div className="col-sm-12 col-md-12 col-lg-10 col-xl-10 d-flex justify-content-center flex-wrap">
-          {filteredRecipes?.map((recipe) => (
-            <RecipeCard key={recipe.id} recipe={recipe} />
-          ))}
-        </div>
+        {recipes ? (
+          <div className="col-sm-12 col-md-12 col-lg-10 col-xl-10 d-flex justify-content-center flex-wrap">
+            {filteredRecipes?.map((recipe) => (
+              <RecipeCard key={recipe.id} recipe={recipe} />
+            ))}
+          </div>
+        ) : (
+          <BiLoader />
+        )}
         <div className="row d-flex justify-content-center">
           <div className="col-sm-12 col-md-7 col-lg-6 col-xl-6 d-flex align-items-center flex-column">
             <Form.Label
