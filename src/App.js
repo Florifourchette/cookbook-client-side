@@ -18,15 +18,12 @@ import ProtectedRoute from "./ProtectedRoute";
 const App = () => {
   const { getRecipes } = useContentful();
   const { getCategories } = useContentful();
-  const { createEntry } = manageContentful();
   const [recipes, setRecipes] = useState([]);
   const [searchInput, setSearchInput] = useState("");
   const [categories, setCategories] = useState([]);
   const [categoryID, setCategoryID] = useState(null);
   const [checked, setchecked] = useState(false);
-  const titleRef = useRef("");
-  const shortTextRef = useRef("");
-  const longTextRef = useRef("");
+  
   const [uploading, setUploading] = useState(false);
 
   useEffect(() => {
@@ -56,29 +53,6 @@ const App = () => {
 
   const handleSearchInput = (input) => {
     setSearchInput(input);
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const entry = {
-      fields: {
-        recipeTitle: {
-          "en-US": titleRef.current.value,
-        },
-        shortDescription: {
-          "en-US": shortTextRef.current.value,
-        },
-        longDescription: {
-          "en-US": longTextRef.current.value,
-        },
-      },
-    };
-    createEntry(entry, setUploading).then((data) => {
-      console.log(data);
-    });
-    titleRef.current.value = "";
-    shortTextRef.current.value = "";
-    longTextRef.current.value = "";
   };
 
   const displayAllresults = (e) => {
@@ -117,10 +91,10 @@ const App = () => {
                 setRecipes={setRecipes}
                 setchecked={setchecked}
                 checked={checked}
-                titleRef={titleRef}
-                shortTextRef={shortTextRef}
-                longTextRef={longTextRef}
-                handleSubmit={handleSubmit}
+                // titleRef={titleRef}
+                // shortTextRef={shortTextRef}
+                // longTextRef={longTextRef}
+                // handleSubmit={handleSubmit}
               />
             </ProtectedRoute>
           }
