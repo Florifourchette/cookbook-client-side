@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
+import axios from "axios";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import useContentful from "./useContentful";
 import manageContentful from "./manageContentful";
@@ -29,17 +30,28 @@ const App = () => {
   const [uploading, setUploading] = useState(false);
 
   useEffect(() => {
-    getRecipes(categoryID, searchInput).then((response) => {
-      console.log(response);
-      setRecipes(response);
-      console.log("renders?");
-    });
-  }, [categoryID, searchInput, uploading]);
+    axios
+      .get("http://localhost:8001/recipes")
+      .then((response) => {
+        setRecipes(response.data);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+  // [categoryID, searchInput, uploading]
 
   useEffect(() => {
-    getCategories().then((response) => {
-      setCategories(response);
-    });
+    axios
+      .get("http://localhost:8001/categories")
+      .then((response) => {
+        setCategories(response.data);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, []);
 
   const handleSearchInput = (input) => {
@@ -78,7 +90,7 @@ const App = () => {
 
   const filteredRecipes = recipes.filter((recipe) => {
     return (
-      recipe.recipeTitle.toLowerCase().includes(searchInput.toLowerCase()) &&
+      recipe.recipetitle.toLowerCase().includes(searchInput.toLowerCase()) &&
       (checked ? recipe.vegan === true : recipe)
     );
   });
@@ -130,7 +142,7 @@ const App = () => {
           }
         />
         <Route
-          path="/recipe/:id"
+          path="/recipes/:id"
           element={
             <ProtectedRoute>
               <Recipe filteredRecipes={filteredRecipes} />

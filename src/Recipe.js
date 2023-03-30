@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "./style.css";
+import axios from "axios";
 import Typography from "@mui/material/Typography";
 import { CssBaseline, Grid } from "@mui/material";
 import Container from "@mui/material/Container";
@@ -14,20 +15,21 @@ export default ({ filteredRecipes }) => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const myRecipe = filteredRecipes.find((aRecipe) => {
-    return aRecipe.recipeUrl === id;
-  });
-
   useEffect(() => {
-    setThisRecipe(myRecipe);
+    axios
+      .get(`http://localhost:8001/recipes/${id}`)
+      .then((response) => {
+        console.log(response);
+        setThisRecipe(response.data[0]);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, [id]);
-
-  console.log(filteredRecipes);
-  console.log(myRecipe);
-  console.log(thisRecipe);
 
   return (
     <div>
+      <div>{thisRecipe.recipetitle}</div>
       <CssBaseline />
       <nav
         aria-label="breadcrumb"
@@ -50,11 +52,7 @@ export default ({ filteredRecipes }) => {
             sx={{ mb: 3 }}
             maxWidth="sm"
             style={{
-              backgroundImage: `url(${
-                "https:" +
-                thisRecipe.recipeImg?.file.url +
-                "?fit=thumb&f=top_left"
-              })`,
+              backgroundImage: `url(${thisRecipe.recipepicture})`,
               backgroundSize: "cover",
               height: "70vh",
               width: "70vh",
@@ -70,7 +68,7 @@ export default ({ filteredRecipes }) => {
               color="textPrimary"
               align="center"
             >
-              <h1>{thisRecipe.recipeTitle}</h1>
+              <h1>{thisRecipe.recipetitle}</h1>
             </Typography>
           </Container>
           <Container maxWidth="sm" align="center">
@@ -82,8 +80,8 @@ export default ({ filteredRecipes }) => {
               align="center"
               sx={{ mb: 4 }}
             >
-              <p>{thisRecipe.shortDescription}</p>
-              <p>{thisRecipe.longDescription}</p>
+              <p>{thisRecipe.shortdescription}</p>
+              <p>{thisRecipe.longdescription}</p>
             </Typography>
           </Container>
           <Container>
@@ -108,11 +106,7 @@ export default ({ filteredRecipes }) => {
                         color="textSecondary"
                         align="justify"
                       >
-                        <ul>
-                          {thisRecipe.ingredient?.map((item) => (
-                            <li>{item}</li>
-                          ))}
-                        </ul>
+                        <div>{thisRecipe.ingredient}</div>
                       </Typography>
                     </CardContent>
                   </CardActionArea>
@@ -138,11 +132,7 @@ export default ({ filteredRecipes }) => {
                         color="textSecondary"
                         align="justify"
                       >
-                        <ol>
-                          {thisRecipe.steps?.map((step) => (
-                            <li>{step}</li>
-                          ))}
-                        </ol>
+                        <div>{thisRecipe.steps}</div>
                       </Typography>
                     </CardContent>
                   </CardActionArea>

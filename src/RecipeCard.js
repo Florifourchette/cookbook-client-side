@@ -26,25 +26,25 @@ const RecipeCard = ({ recipe }) => {
           <CardMedia
             component="img"
             height="300"
-            image={"https:" + recipe.recipeImg?.file.url}
+            image={recipe.recipepicture}
             alt="green iguana"
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
-              {recipe.recipeTitle}
+              {recipe.recipetitle}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              {recipe.shortDescription}
+              {recipe.shortdescription}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              {recipe.longDescription}
+              {recipe.longdescription}
             </Typography>
           </CardContent>
         </CardActionArea>
         <CardActions>
           <Link
             className="link"
-            to={`/recipe/${recipe.recipeUrl}`}
+            to={`/recipes/${recipe.id}`}
             style={{ textDecoration: "none" }}
           >
             <Button
@@ -75,15 +75,15 @@ const RecipeCard = ({ recipe }) => {
           <CardMedia
             component="img"
             height="300"
-            image={"https:" + recipe.recipeImg?.file.url}
+            image={recipe.recipepicture}
             alt="green iguana"
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
-              {recipe.recipeTitle}
+              {recipe.recipetitle}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              {recipe.shortDescription}
+              {recipe.shortdescription}
             </Typography>
           </CardContent>
         </CardActionArea>
