@@ -19,7 +19,7 @@ export default ({ filteredRecipes }) => {
     axios
       .get(`http://localhost:8001/recipes/${id}`)
       .then((response) => {
-        console.log(response);
+        console.log({ response });
         setThisRecipe(response.data[0]);
       })
       .catch((error) => {
@@ -40,7 +40,7 @@ export default ({ filteredRecipes }) => {
             <a href="/">Home</a>
           </li>
           <li class="breadcrumb-item active" aria-current="page">
-            {id}
+            {thisRecipe.recipetitle}
           </li>
         </ol>
       </nav>
