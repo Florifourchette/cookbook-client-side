@@ -4,6 +4,7 @@ import RecipeCard from "./RecipeCard";
 import TextField from "@mui/material/TextField";
 import Autocomplete, { createFilterOptions } from "@mui/material/Autocomplete";
 import Form from "react-bootstrap/Form";
+import { BiLoader } from "react-icons/bi";
 import axios from "axios";
 
 
@@ -102,84 +103,43 @@ const [vegan, setvegan] = useState(false);
                 </div>
             </div>
 
-            <div className="row d-flex justify-content-center">
-                <div className="col-sm-12 col-md-12 col-lg-10 col-xl-10 d-flex justify-content-center flex-wrap">
-                    {filteredRecipes?.map((recipe) => (
-                        <RecipeCard key={recipe.recipeUrl} recipe={recipe} />
-                    ))}
-                </div>
-                <div className="row d-flex justify-content-center">
-                    <div className="col-sm-12 col-md-7 col-lg-6 col-xl-6 d-flex align-items-center flex-column">
-                        <Form.Label
-                            className="text-left w-100"
-                            style={{ marginTop: "2em" }}
-                        >
-                            Recipe Title
-                        </Form.Label>
-                        <Form.Control
-                            type="text"
-                            onChange={(e) => setrecipetitle(e.target.value)}
-                        />
-                        <Form.Label className="text-left w-100">
-                            Short Description
-                        </Form.Label>
-                        <Form.Control
-                            type="text"
-                            onChange={(e) =>
-                                setshortdescription(e.target.value)
-                            }
-                        />
-                        <Form.Label className="text-left w-100">
-                            Long Description
-                        </Form.Label>
-                        <Form.Control
-                            type="text"
-                            onChange={(e) => setlongdescription(e.target.value)}
-                            style={{ height: "5em", marginBottom: "1em" }}
-                        />
-                        <Form.Label className="text-left w-100">
-                            Picture URL
-                        </Form.Label>
-                        <Form.Control
-                            type="text"
-                            onChange={(e) => setrecipepicture(e.target.value)}
-                            style={{ height: "2em", marginBottom: "1em" }}
-                        />
-                        <Form.Label className="text-left w-100">
-                            Ingredients
-                        </Form.Label>
-                        <Form.Control
-                            type="text"
-                            onChange={(e) => setingredient(e.target.value)}
-                            style={{ height: "5em", marginBottom: "1em" }}
-                        />
-                        <Form.Label className="text-left w-100">
-                            Steps
-                        </Form.Label>
-                        <Form.Control
-                            type="text"
-                            onChange={(e) => setsteps(e.target.value)}
-                            style={{ height: "5em", marginBottom: "1em" }}
-                        />
-                        <Form.Label className="text-left w-100">
-                            Is it Vegan?
-                        </Form.Label>
-                        <Form.Group inline>
-                            <Form.Check
-                                type="checkbox"
-                                label="Yes"
-                                onChange={(e) => setvegan(e.target.checked)}
-                            />
-                        </Form.Group>
-                        <button
-                            className="submit-btn text-center"
-                            onClick={handleSubmit}
-                        >
-                            Upload Recipe
-                        </button>
-                    </div>
-                </div>
-            </div>
+      <div className="row d-flex justify-content-center">
+        {recipes ? (
+          <div className="col-sm-12 col-md-12 col-lg-10 col-xl-10 d-flex justify-content-center flex-wrap">
+            {filteredRecipes?.map((recipe) => (
+              <RecipeCard key={recipe.id} recipe={recipe} />
+            ))}
+          </div>
+        ) : (
+          <BiLoader />
+        )}
+        <div className="row d-flex justify-content-center">
+          <div className="col-sm-12 col-md-7 col-lg-6 col-xl-6 d-flex align-items-center flex-column">
+            <Form.Label
+              className="text-left w-100"
+              style={{ marginTop: "2em" }}
+            >
+              Recipe Title
+            </Form.Label>
+            <Form.Control type="text" ref={titleRef} />
+            <Form.Label className="text-left w-100">
+              Short Description
+            </Form.Label>
+            <Form.Control type="text" ref={shortTextRef} />
+            <Form.Label className="text-left w-100">
+              Long Description
+            </Form.Label>
+            <Form.Control
+              type="text"
+              ref={longTextRef}
+              style={{ height: "5em", marginBottom: "1em" }}
+            />
+            <button className="submit-btn text-center" onClick={handleSubmit}>
+              Upload Recipe
+            </button>
+          </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
