@@ -24,6 +24,7 @@ const App = () => {
   const [resetAll, setResetAll] = useState(false);
   const [uploading, setUploading] = useState(false);
   const [deleteButtonPressed, setDeleteButtonPressed] = useState(false);
+  const [uploadButtonPressed, setUploadButtonPressed] = useState(false);
 
   useEffect(() => {
     const gettingRecipes = async () => {
@@ -109,7 +110,7 @@ const App = () => {
       setRecipes(response.data);
       console.log(response.data);
     });
-  }, [deleteButtonPressed]);
+  }, [deleteButtonPressed, uploadButtonPressed]);
 
   return (
     <div className="root">
@@ -134,6 +135,7 @@ const App = () => {
                 setchecked={setchecked}
                 checked={checked}
                 setDeleteButtonPressed={setDeleteButtonPressed}
+                setUploadButtonPressed={setUploadButtonPressed}
               />
             </ProtectedRoute>
           }
