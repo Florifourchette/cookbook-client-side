@@ -17,6 +17,7 @@ export default ({
   checked,
   setchecked,
   setDeleteButtonPressed,
+  setUploadButtonPressed,
   deleteButtonPressed,
 }) => {
   const filterOptions = createFilterOptions({
@@ -53,6 +54,7 @@ export default ({
         console.error("Error adding recipe", error);
         // setUploading(false)
       });
+    setUploadButtonPressed((prev) => !prev);
   };
 
   return (
