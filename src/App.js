@@ -133,7 +133,7 @@ const App = () => {
                 setRecipes={setRecipes}
                 setchecked={setchecked}
                 checked={checked}
-            
+                setDeleteButtonPressed={setDeleteButtonPressed}
               />
             </ProtectedRoute>
           }

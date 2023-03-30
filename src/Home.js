@@ -18,6 +18,7 @@ export default ({
     displayAllresults,
     checked,
     setchecked,
+    setDeleteButtonPressed,
 
 }) => {
     const filterOptions = createFilterOptions({
