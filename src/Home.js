@@ -31,6 +31,37 @@ export default ({
   const [steps, setsteps] = useState("");
   const [ingredient, setingredient] = useState("");
   const [vegan, setvegan] = useState(false);
+
+  const [categoryName, setcategoryName] = useState('')
+
+  const addRecipeAndCategory = async (recipeData, categoryData) => {
+    try {
+      // First create the category
+      const categoryResponse = await axios.post("http://localhost:8001/categories", categoryData);
+      console.log("Category added successfully client", categoryResponse.data);
+  
+      // Get the category_id from the response
+      console.log(categoryResponse.data[0].id);
+      const categoryId = categoryResponse.data[0].id;
+  
+      // Add the category_id to the recipe data
+      const recipeWithCategoryId = await {
+        ...recipeData,
+        category_id: categoryId,
+      };
+  
+      // Then create the recipe with the category ID
+      const recipeResponse = await axios.post("http://localhost:8001/recipes", recipeWithCategoryId);
+      console.log("Recipe with category_id added successfully", recipeResponse.data);
+  
+      // Update the state to re-render the component
+      setUploadButtonPressed((prev) => !prev);
+    } catch (error) {
+      console.error("Error adding recipe and category", error);
+    }
+  };
+
+
   const handleSubmit = (e) => {
     // setUploading(true)
     e.preventDefault();
@@ -43,19 +74,15 @@ export default ({
       ingredient,
       vegan,
     };
-    axios
-      .post("http://localhost:8001/recipes", recipeData)
-      .then((response) => {
-        console.log("Recipe added successfully client", response.data);
 
-        // setUploading(false)
-      })
-      .catch((error) => {
-        console.error("Error adding recipe", error);
-        // setUploading(false)
-      });
-    setUploadButtonPressed((prev) => !prev);
-  };
+    const categoryData = {
+      name: categoryName,
+    }
+  
+    addRecipeAndCategory(recipeData, categoryData);
+  
+  }
+  
 
   return (
     <div className="container-fluid">
@@ -121,6 +148,13 @@ export default ({
             <Form.Control
               type="text"
               onChange={(e) => setrecipetitle(e.target.value)}
+            />
+            <Form.Label className="text-left w-100">
+              Category
+            </Form.Label>
+            <Form.Control
+              type="text"
+              onChange={(e) => setcategoryName(e.target.value)}
             />
             <Form.Label className="text-left w-100">
               Short Description
