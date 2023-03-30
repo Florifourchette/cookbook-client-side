@@ -21,7 +21,7 @@ const App = () => {
   const [categories, setCategories] = useState([]);
   const [categoryID, setCategoryID] = useState(null);
   const [checked, setchecked] = useState(false);
-  
+  const [resetAll, setResetAll] = useState(false);
   const [uploading, setUploading] = useState(false);
   const [deleteButtonPressed, setDeleteButtonPressed] = useState(false);
 
@@ -133,10 +133,7 @@ const App = () => {
                 setRecipes={setRecipes}
                 setchecked={setchecked}
                 checked={checked}
-                // titleRef={titleRef}
-                // shortTextRef={shortTextRef}
-                // longTextRef={longTextRef}
-                // handleSubmit={handleSubmit}
+            
               />
             </ProtectedRoute>
           }
