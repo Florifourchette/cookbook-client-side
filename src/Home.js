@@ -19,6 +19,8 @@ export default ({
   handleSubmit,
   shortTextRef,
   longTextRef,
+  setRecipes,
+  setDeleteButtonPressed,
 }) => {
   const filterOptions = createFilterOptions({
     matchFrom: "start",

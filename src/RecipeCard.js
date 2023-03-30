@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import "./style.css";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -7,8 +8,25 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions } from "@mui/material";
 
-const RecipeCard = ({ recipe }) => {
+const RecipeCard = ({ recipe, setDeleteButtonPressed }) => {
   const [isActive, setIsActive] = useState(false);
+  const id = recipe.id;
+
+  function handleDelete() {
+    const response = window.confirm(
+      `Are you sure you want to delete ${recipe.title}`
+    );
+    if (response) {
+      axios
+        .delete(`http://localhost:8001/recipes/${id}`)
+        .then()
+        .catch((error) => {
+          console.log(error);
+        });
+
+      setDeleteButtonPressed((prev) => !prev);
+    }
+  }
 
   function handleClick(e) {
     e.preventDefault();
@@ -61,6 +79,20 @@ const RecipeCard = ({ recipe }) => {
               view more
             </Button>
           </Link>
+          <Button
+            size="small"
+            sx={{
+              color: "white",
+              fontSize: "bold",
+              backgroundColor: "red",
+              "&:hover": {
+                backgroundColor: "se",
+              },
+            }}
+            onClick={handleDelete}
+          >
+            DELETE
+          </Button>
         </CardActions>
       </Card>
     );

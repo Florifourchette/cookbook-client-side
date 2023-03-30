@@ -26,6 +26,7 @@ const App = () => {
   const shortTextRef = useRef("");
   const longTextRef = useRef("");
   const [uploading, setUploading] = useState(false);
+  const [deleteButtonPressed, setDeleteButtonPressed] = useState(false);
 
   useEffect(() => {
     const gettingRecipes = async () => {
@@ -129,6 +130,13 @@ const App = () => {
     );
   });
 
+  useEffect(() => {
+    axios.get("http://localhost:8001/recipes").then((response) => {
+      setRecipes(response.data);
+      console.log(response.data);
+    });
+  }, [deleteButtonPressed]);
+
   return (
     <div className="root">
       <NavigationBar callback={handleSearchInput} />
@@ -155,6 +163,8 @@ const App = () => {
                 shortTextRef={shortTextRef}
                 longTextRef={longTextRef}
                 handleSubmit={handleSubmit}
+                setDeleteButtonPressed={setDeleteButtonPressed}
+                deleteButtonPressed={deleteButtonPressed}
               />
             </ProtectedRoute>
           }
