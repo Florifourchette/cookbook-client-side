@@ -45,7 +45,9 @@ export default ({
                     console.log(newValue);
                   }}
                   options={categories}
-                  getOptionLabel={(category) => category?.name}
+                  getOptionLabel={(category) =>
+                    category?.name ? category?.name : ""
+                  }
                   filterOptions={filterOptions}
                   sx={{ width: 300, padding: 0 }}
                   renderInput={(params) => (
