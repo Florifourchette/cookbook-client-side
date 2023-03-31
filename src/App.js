@@ -22,10 +22,9 @@ const App = () => {
   const [categoryID, setCategoryID] = useState(null);
   const [checked, setchecked] = useState(false);
   const [resetAll, setResetAll] = useState(false);
-  const titleRef = useRef("");
-  const shortTextRef = useRef("");
-  const longTextRef = useRef("");
   const [uploading, setUploading] = useState(false);
+  const [deleteButtonPressed, setDeleteButtonPressed] = useState(false);
+  const [uploadButtonPressed, setUploadButtonPressed] = useState(false);
 
   useEffect(() => {
     const gettingRecipes = async () => {
@@ -91,29 +90,6 @@ const App = () => {
     setSearchInput(input);
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const entry = {
-      fields: {
-        recipeTitle: {
-          "en-US": titleRef.current.value,
-        },
-        shortDescription: {
-          "en-US": shortTextRef.current.value,
-        },
-        longDescription: {
-          "en-US": longTextRef.current.value,
-        },
-      },
-    };
-    createEntry(entry, setUploading).then((data) => {
-      console.log(data);
-    });
-    titleRef.current.value = "";
-    shortTextRef.current.value = "";
-    longTextRef.current.value = "";
-  };
-
   const displayAllresults = (e) => {
     e.preventDefault();
     setResetAll(!resetAll);
@@ -128,6 +104,13 @@ const App = () => {
       (checked ? recipe.vegan === true : recipe)
     );
   });
+
+  useEffect(() => {
+    axios.get("http://localhost:8001/recipes").then((response) => {
+      setRecipes(response.data);
+      console.log(response.data);
+    });
+  }, [deleteButtonPressed, uploadButtonPressed]);
 
   return (
     <div className="root">
@@ -151,10 +134,8 @@ const App = () => {
                 setRecipes={setRecipes}
                 setchecked={setchecked}
                 checked={checked}
-                titleRef={titleRef}
-                shortTextRef={shortTextRef}
-                longTextRef={longTextRef}
-                handleSubmit={handleSubmit}
+                setDeleteButtonPressed={setDeleteButtonPressed}
+                setUploadButtonPressed={setUploadButtonPressed}
               />
             </ProtectedRoute>
           }

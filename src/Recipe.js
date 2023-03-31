@@ -29,7 +29,6 @@ export default ({ filteredRecipes }) => {
 
   return (
     <div>
-      <div>{thisRecipe.recipetitle}</div>
       <CssBaseline />
       <nav
         aria-label="breadcrumb"

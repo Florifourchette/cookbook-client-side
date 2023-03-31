@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Filter from "./Filter";
 import RecipeCard from "./RecipeCard";
 import TextField from "@mui/material/TextField";
 import Autocomplete, { createFilterOptions } from "@mui/material/Autocomplete";
 import Form from "react-bootstrap/Form";
 import { BiLoader } from "react-icons/bi";
+import axios from "axios";
 
 export default ({
   filteredRecipes,
@@ -15,14 +16,79 @@ export default ({
   displayAllresults,
   checked,
   setchecked,
-  titleRef,
-  handleSubmit,
-  shortTextRef,
-  longTextRef,
+  setDeleteButtonPressed,
+  setUploadButtonPressed,
+  deleteButtonPressed,
 }) => {
   const filterOptions = createFilterOptions({
     matchFrom: "start",
   });
+
+  const [recipetitle, setrecipetitle] = useState("");
+  const [shortdescription, setshortdescription] = useState("");
+  const [longdescription, setlongdescription] = useState("");
+  const [recipepicture, setrecipepicture] = useState("");
+  const [steps, setsteps] = useState("");
+  const [ingredient, setingredient] = useState("");
+  const [vegan, setvegan] = useState(false);
+
+  const [categoryName, setcategoryName] = useState("");
+
+  const addRecipeAndCategory = async (recipeData, categoryData) => {
+    try {
+      // First create the category
+      const categoryResponse = await axios.post(
+        "http://localhost:8001/categories",
+        categoryData
+      );
+      console.log("Category added successfully client", categoryResponse.data);
+
+      // Get the category_id from the response
+      console.log(categoryResponse.data[0].id);
+      const categoryId = categoryResponse.data[0].id;
+
+      // Add the category_id to the recipe data
+      const recipeWithCategoryId = await {
+        ...recipeData,
+        category_id: categoryId,
+      };
+
+      // Then create the recipe with the category ID
+      const recipeResponse = await axios.post(
+        "http://localhost:8001/recipes",
+        recipeWithCategoryId
+      );
+      console.log(
+        "Recipe with category_id added successfully",
+        recipeResponse.data
+      );
+
+      // Update the state to re-render the component
+      setUploadButtonPressed((prev) => !prev);
+    } catch (error) {
+      console.error("Error adding recipe and category", error);
+    }
+  };
+
+  const handleSubmit = (e) => {
+    // setUploading(true)
+    e.preventDefault();
+    const recipeData = {
+      recipetitle,
+      shortdescription,
+      longdescription,
+      recipepicture,
+      steps,
+      ingredient,
+      vegan,
+    };
+
+    const categoryData = {
+      name: categoryName,
+    };
+
+    addRecipeAndCategory(recipeData, categoryData);
+  };
 
   return (
     <div className="container-fluid">
@@ -76,7 +142,11 @@ export default ({
         {recipes ? (
           <div className="col-sm-12 col-md-12 col-lg-10 col-xl-10 d-flex justify-content-center flex-wrap">
             {filteredRecipes?.map((recipe) => (
-              <RecipeCard key={recipe.id} recipe={recipe} />
+              <RecipeCard
+                key={recipe.id}
+                recipe={recipe}
+                setDeleteButtonPressed={setDeleteButtonPressed}
+              />
             ))}
           </div>
         ) : (
@@ -90,19 +160,56 @@ export default ({
             >
               Recipe Title
             </Form.Label>
-            <Form.Control type="text" ref={titleRef} />
+            <Form.Control
+              type="text"
+              onChange={(e) => setrecipetitle(e.target.value)}
+            />
+            <Form.Label className="text-left w-100">Category</Form.Label>
+            <Form.Control
+              type="text"
+              onChange={(e) => setcategoryName(e.target.value)}
+            />
             <Form.Label className="text-left w-100">
               Short Description
             </Form.Label>
-            <Form.Control type="text" ref={shortTextRef} />
+            <Form.Control
+              type="text"
+              onChange={(e) => setshortdescription(e.target.value)}
+            />
             <Form.Label className="text-left w-100">
               Long Description
             </Form.Label>
             <Form.Control
               type="text"
-              ref={longTextRef}
+              onChange={(e) => setlongdescription(e.target.value)}
               style={{ height: "5em", marginBottom: "1em" }}
             />
+            <Form.Label className="text-left w-100">Picture URL</Form.Label>
+            <Form.Control
+              type="text"
+              onChange={(e) => setrecipepicture(e.target.value)}
+              style={{ height: "2em", marginBottom: "1em" }}
+            />
+            <Form.Label className="text-left w-100">Ingredients</Form.Label>
+            <Form.Control
+              type="text"
+              onChange={(e) => setingredient(e.target.value)}
+              style={{ height: "5em", marginBottom: "1em" }}
+            />
+            <Form.Label className="text-left w-100">Steps</Form.Label>
+            <Form.Control
+              type="text"
+              onChange={(e) => setsteps(e.target.value)}
+              style={{ height: "5em", marginBottom: "1em" }}
+            />
+            <Form.Label className="text-left w-100">Is it Vegan?</Form.Label>
+            <Form.Group inline>
+              <Form.Check
+                type="checkbox"
+                label="Yes"
+                onChange={(e) => setvegan(e.target.checked)}
+              />
+            </Form.Group>
             <button className="submit-btn text-center" onClick={handleSubmit}>
               Upload Recipe
             </button>
