@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
+import axios from "axios";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
-import useContentful from "./useContentful";
 import manageContentful from "./manageContentful";
 import Recipe from "./Recipe";
 import Home from "./Home";
@@ -15,62 +15,76 @@ import { AuthProvider } from "./contexts/AuthContext";
 import ProtectedRoute from "./ProtectedRoute";
 
 const App = () => {
-  const { getRecipes } = useContentful();
-  const { getCategories } = useContentful();
   const { createEntry } = manageContentful();
   const [recipes, setRecipes] = useState([]);
   const [searchInput, setSearchInput] = useState("");
   const [categories, setCategories] = useState([]);
   const [categoryID, setCategoryID] = useState(null);
   const [checked, setchecked] = useState(false);
-  const titleRef = useRef("");
-  const shortTextRef = useRef("");
-  const longTextRef = useRef("");
+  const [resetAll, setResetAll] = useState(false);
   const [uploading, setUploading] = useState(false);
+  const [deleteButtonPressed, setDeleteButtonPressed] = useState(false);
+  const [uploadButtonPressed, setUploadButtonPressed] = useState(false);
 
   useEffect(() => {
-    getRecipes(categoryID, searchInput).then((response) => {
-      console.log(response);
-      setRecipes(response);
-      console.log("renders?");
-    });
-  }, [categoryID, searchInput, uploading]);
+    const gettingRecipes = async () => {
+      try {
+        const response = await axios.get("http://localhost:8001/recipes/");
+        return response;
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    const gettingCategories = async () => {
+      try {
+        const response = await axios.get("http://localhost:8001/categories/");
+        return response;
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    const newData = async () => {
+      const recipesData = await gettingRecipes();
+      const categoriesData = await gettingCategories();
+      setCategories(categoriesData.data);
+      console.log(categoriesData.data);
+      setRecipes(recipesData.data);
+      console.log(recipesData.data);
+    };
+    newData()
+      .then((response) => console.log(response))
+      .catch((error) => console.log(error));
+  }, [resetAll]);
+  // [categoryID, searchInput, uploading]
 
   useEffect(() => {
-    getCategories().then((response) => {
-      setCategories(response);
-    });
-  }, []);
+    const gettingCategoryRecipes = async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost:8001/categories/${categoryID?.id}`
+        );
+        return response;
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    const myNewData = async () => {
+      const recipesData = await gettingCategoryRecipes();
+      setRecipes(recipesData.data);
+      console.log(recipesData.data);
+    };
+    myNewData()
+      .then((response) => console.log(response))
+      .catch((error) => console.log(error));
+  }, [categoryID]);
 
   const handleSearchInput = (input) => {
     setSearchInput(input);
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const entry = {
-      fields: {
-        recipeTitle: {
-          "en-US": titleRef.current.value,
-        },
-        shortDescription: {
-          "en-US": shortTextRef.current.value,
-        },
-        longDescription: {
-          "en-US": longTextRef.current.value,
-        },
-      },
-    };
-    createEntry(entry, setUploading).then((data) => {
-      console.log(data);
-    });
-    titleRef.current.value = "";
-    shortTextRef.current.value = "";
-    longTextRef.current.value = "";
-  };
-
   const displayAllresults = (e) => {
     e.preventDefault();
+    setResetAll(!resetAll);
     setCategoryID(null);
     setchecked(null);
     setSearchInput("");
@@ -78,10 +92,17 @@ const App = () => {
 
   const filteredRecipes = recipes.filter((recipe) => {
     return (
-      recipe.recipeTitle.toLowerCase().includes(searchInput.toLowerCase()) &&
+      recipe.recipetitle.toLowerCase().includes(searchInput.toLowerCase()) &&
       (checked ? recipe.vegan === true : recipe)
     );
   });
+
+  useEffect(() => {
+    axios.get("http://localhost:8001/recipes").then((response) => {
+      setRecipes(response.data);
+      console.log(response.data);
+    });
+  }, [deleteButtonPressed, uploadButtonPressed]);
 
   return (
     <div className="root">
@@ -105,10 +126,8 @@ const App = () => {
                 setRecipes={setRecipes}
                 setchecked={setchecked}
                 checked={checked}
-                titleRef={titleRef}
-                shortTextRef={shortTextRef}
-                longTextRef={longTextRef}
-                handleSubmit={handleSubmit}
+                setDeleteButtonPressed={setDeleteButtonPressed}
+                setUploadButtonPressed={setUploadButtonPressed}
               />
             </ProtectedRoute>
           }
@@ -130,7 +149,7 @@ const App = () => {
           }
         />
         <Route
-          path="/recipe/:id"
+          path="/recipes/:id"
           element={
             <ProtectedRoute>
               <Recipe filteredRecipes={filteredRecipes} />
