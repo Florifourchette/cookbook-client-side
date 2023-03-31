@@ -32,35 +32,43 @@ export default ({
   const [ingredient, setingredient] = useState("");
   const [vegan, setvegan] = useState(false);
 
-  const [categoryName, setcategoryName] = useState('')
+  const [categoryName, setcategoryName] = useState("");
 
   const addRecipeAndCategory = async (recipeData, categoryData) => {
     try {
       // First create the category
-      const categoryResponse = await axios.post("http://localhost:8001/categories", categoryData);
+      const categoryResponse = await axios.post(
+        "http://localhost:8001/categories",
+        categoryData
+      );
       console.log("Category added successfully client", categoryResponse.data);
-  
+
       // Get the category_id from the response
       console.log(categoryResponse.data[0].id);
       const categoryId = categoryResponse.data[0].id;
-  
+
       // Add the category_id to the recipe data
       const recipeWithCategoryId = await {
         ...recipeData,
         category_id: categoryId,
       };
-  
+
       // Then create the recipe with the category ID
-      const recipeResponse = await axios.post("http://localhost:8001/recipes", recipeWithCategoryId);
-      console.log("Recipe with category_id added successfully", recipeResponse.data);
-  
+      const recipeResponse = await axios.post(
+        "http://localhost:8001/recipes",
+        recipeWithCategoryId
+      );
+      console.log(
+        "Recipe with category_id added successfully",
+        recipeResponse.data
+      );
+
       // Update the state to re-render the component
       setUploadButtonPressed((prev) => !prev);
     } catch (error) {
       console.error("Error adding recipe and category", error);
     }
   };
-
 
   const handleSubmit = (e) => {
     // setUploading(true)
@@ -77,12 +85,10 @@ export default ({
 
     const categoryData = {
       name: categoryName,
-    }
-  
+    };
+
     addRecipeAndCategory(recipeData, categoryData);
-  
-  }
-  
+  };
 
   return (
     <div className="container-fluid">
@@ -96,18 +102,27 @@ export default ({
               readers each month from around the world.
             </p>
             <div className="d-flex flex-row">
-              <Autocomplete
-                id="filter-demo"
-                value={categoryID}
-                onChange={(e, newValue) => setCategoryID(newValue)}
-                options={categories}
-                getOptionLabel={(category) => category?.fields?.name}
-                filterOptions={filterOptions}
-                sx={{ width: 300, padding: 0 }}
-                renderInput={(params) => (
-                  <TextField {...params} label="Recipe Category" />
-                )}
-              />
+              {categories ? (
+                <Autocomplete
+                  id="filter-demo"
+                  value={categoryID}
+                  onChange={(e, newValue) => {
+                    setCategoryID(newValue);
+                    console.log(newValue);
+                  }}
+                  options={categories}
+                  getOptionLabel={(category) =>
+                    category?.name ? category?.name : ""
+                  }
+                  filterOptions={filterOptions}
+                  sx={{ width: 300, padding: 0 }}
+                  renderInput={(params) => (
+                    <TextField {...params} label="Recipe Category" />
+                  )}
+                />
+              ) : (
+                <BiLoader />
+              )}
               <button id="resetAll" onClick={displayAllresults}>
                 all recipes
               </button>
@@ -149,9 +164,7 @@ export default ({
               type="text"
               onChange={(e) => setrecipetitle(e.target.value)}
             />
-            <Form.Label className="text-left w-100">
-              Category
-            </Form.Label>
+            <Form.Label className="text-left w-100">Category</Form.Label>
             <Form.Control
               type="text"
               onChange={(e) => setcategoryName(e.target.value)}
