@@ -179,32 +179,25 @@ export default ({
             />
             <Form.Label className="text-left w-100">Category</Form.Label>
             <div className="d-flex flex-row">
-          
-              {categories ? (
-                <Autocomplete
-                  value={categoryName.id}
-                  onChange={(e, newValue) => {
-                    console.log(newValue.name);
-                    if (newValue){
-                      setcategorySelector(newValue.id);
-                      console.log(newValue.id);
-                    }
-                    
-                    
+
+              <select
+                  className="ui search dropdown ui fluid dropdown drop-d"
+                  value={categoryID}
+                  onChange={(e) => {
+                    const selectedCategoryId = e.target.value;
+                    console.log(selectedCategoryId)
+                    const selectedCategory = categories.find((category) => category.id === selectedCategoryId);
+                    console.log(selectedCategory)
+                    setcategorySelector(selectedCategoryId);
+            
                   }}
-                  options={categories}
-                  getOptionLabel={(category) =>
-                    category.name ? category.name : ""
-                  }
-                  sx={{ width: 400, padding: 0 }}
-                  // onChange={(e) => setcategoryName(e.target.value)}
-                  renderInput={(params) => (
-                    <TextField {...params} label="Choose Existing Category" />
-                  )}
-                />
-              ) : (
-                <BiLoader />
-              )}
+              >
+                  <option value="" >Select a category</option>
+                  {categories.map((category) => (
+                    
+                      <option key={category.id} value={category.id}>{category.name}</option>
+                  ))}
+              </select>
               <Form.Control
               type="text"
               placeholder="Or enter a new Category"
