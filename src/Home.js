@@ -32,28 +32,37 @@ export default ({
   const [ingredient, setingredient] = useState("");
   const [vegan, setvegan] = useState(false);
 
-  const [categoryName, setcategoryName] = useState("");
+  const [categoryName, setcategoryName] = useState('');
+  const [categorySelector, setcategorySelector] = useState('');
+  
 
   const addRecipeAndCategory = async (recipeData, categoryData) => {
     try {
-      // First create the category
-      const categoryResponse = await axios.post(
-        "http://localhost:8001/categories",
-        categoryData
-      );
-      console.log("Category added successfully client", categoryResponse.data);
-
-      // Get the category_id from the response
-      console.log(categoryResponse.data[0].id);
-      const categoryId = categoryResponse.data[0].id;
-
+      let categoryId;
+      console.log(`categoryId: ${categoryId}`);
+      if (categoryName.length > 1) {
+        // If the user has entered a new category, create it
+        const categoryResponse = await axios.post(
+          "http://localhost:8001/categories",
+          categoryData
+        );
+        console.log("Category added successfully client", categoryResponse.data);
+  
+        // Get the category_id from the response
+        categoryId = categoryResponse.data[0].id;
+      } else {
+        // If the user has selected an existing category, use its ID
+        categoryId = categorySelector;
+        console.log(categorySelector)
+      }
+  
       // Add the category_id to the recipe data
-      const recipeWithCategoryId = await {
+      const recipeWithCategoryId = {
         ...recipeData,
         category_id: categoryId,
       };
-
-      // Then create the recipe with the category ID
+  
+      // Create the recipe with the category ID
       const recipeResponse = await axios.post(
         "http://localhost:8001/recipes",
         recipeWithCategoryId
@@ -62,13 +71,17 @@ export default ({
         "Recipe with category_id added successfully",
         recipeResponse.data
       );
-
+  
       // Update the state to re-render the component
       setUploadButtonPressed((prev) => !prev);
     } catch (error) {
       console.error("Error adding recipe and category", error);
     }
   };
+
+
+
+
 
   const handleSubmit = (e) => {
     // setUploading(true)
@@ -165,10 +178,34 @@ export default ({
               onChange={(e) => setrecipetitle(e.target.value)}
             />
             <Form.Label className="text-left w-100">Category</Form.Label>
-            <Form.Control
+            <div className="d-flex flex-row">
+
+              <select
+                  className="ui search dropdown ui fluid dropdown drop-d"
+                  value={categoryID}
+                  onChange={(e) => {
+                    const selectedCategoryId = e.target.value;
+                    console.log(selectedCategoryId)
+                    const selectedCategory = categories.find((category) => category.id === selectedCategoryId);
+                    console.log(selectedCategory)
+                    setcategorySelector(selectedCategoryId);
+            
+                  }}
+              >
+                  <option value="" >Select a category</option>
+                  {categories.map((category) => (
+                    
+                      <option key={category.id} value={category.id}>{category.name}</option>
+                  ))}
+              </select>
+              <Form.Control
               type="text"
-              onChange={(e) => setcategoryName(e.target.value)}
+              placeholder="Or enter a new Category"
+              onChange={(e) =>{
+                setcategoryName(e.target.value)
+              }}
             />
+            </div>
             <Form.Label className="text-left w-100">
               Short Description
             </Form.Label>
