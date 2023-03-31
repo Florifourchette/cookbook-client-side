@@ -112,7 +112,7 @@ export default ({
                   }}
                   options={categories}
                   getOptionLabel={(category) =>
-                    category?.name ? category?.name : ""
+                    category.name ? category.name : ""
                   }
                   filterOptions={filterOptions}
                   sx={{ width: 300, padding: 0 }}
