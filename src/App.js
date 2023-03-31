@@ -35,7 +35,6 @@ const App = () => {
         console.log(error);
       }
     };
-
     const gettingCategories = async () => {
       try {
         const response = await axios.get("http://localhost:8001/categories/");
@@ -48,7 +47,9 @@ const App = () => {
       const recipesData = await gettingRecipes();
       const categoriesData = await gettingCategories();
       setCategories(categoriesData.data);
+      console.log(categoriesData.data);
       setRecipes(recipesData.data);
+      console.log(recipesData.data);
     };
     newData()
       .then((response) => console.log(response))
@@ -57,16 +58,6 @@ const App = () => {
   // [categoryID, searchInput, uploading]
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:8001/categories/${categoryID?.id}`)
-      .then((response) => {
-        setRecipes(response.data);
-        console.log("is running");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-
     const gettingCategoryRecipes = async () => {
       try {
         const response = await axios.get(
@@ -80,6 +71,7 @@ const App = () => {
     const myNewData = async () => {
       const recipesData = await gettingCategoryRecipes();
       setRecipes(recipesData.data);
+      console.log(recipesData.data);
     };
     myNewData()
       .then((response) => console.log(response))
